@@ -6,3 +6,7 @@ __pycache__
 .vscode
 venv
 .venvls
+/media/avatar
+/media/reservation
+/media/runMain
+/media/runRoute
