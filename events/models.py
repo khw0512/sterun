@@ -41,7 +41,7 @@ class GuestRun(models.Model):
     status = models.CharField(
         max_length=8,
         choices=STATUS_CHOICE,
-        default="Checking",
+        default="ST2",
     )
     level = models.CharField(
         max_length=15,
