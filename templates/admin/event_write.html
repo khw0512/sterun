@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="overlay-menu-mobie">
+    <div class="close-btn">
+      <span class="close-menus"></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div style="height:50px;"></div>
+    <div class="tocenter">
+      <h3>Event Register</h3>
+      <div class="search-form-inner" id="form_search_inner" style="z-index: 1000;">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.media }}
+          {{ form.as_p }}
+          <button type="submit" id="write" class="flat-button">Submit</button>
+        </div>
+        <div style="height:50px;"></div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

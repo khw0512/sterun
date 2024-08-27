@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="overlay-menu-mobie">
+    <div class="close-btn">
+      <span class="close-menus"></span>
+    </div>
+  </div>
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="themeflat-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-title-heading">
+            <h1 class="title">Contact Us</h1>
+          </div>
+
+        </div>
+        <!-- /.col-md-12 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.page-title -->
+
+  <!-- Contact us -->
+  <div class="tf-contact-page main-content">
+    <div class="themeflat-container">
+      <div class="row contact-page">
+        <div class="col-md-5">
+          <div class="contact-page-content">
+            <div class="content-page-title">
+              <span class="wow fadeInUp animated">Contact us</span>
+              <h2 class="wow fadeInUp animated">Get it touch</h2>
+              <p class="post wow fadeInUp animated">In the 14 years since she first graced our screens in Keeping Up With The Kardashians.</p>
+            </div>
+            <div class="list-contact-us">
+              <div class="inner">
+                <span class="wow fadeInUp animated">INSTAGRAM:
+                </span>
+                <h5 class="wow fadeInUp animated">
+                  <a href="https://www.instagram.com/sterun.kr/" target="_blank">
+                    <i class="fa-brands fa-square-instagram"></i>
+                    INSTAGRAM MESSAGE
+                  </a>
+                </h5>
+              </div>
+              <div class="inner">
+                <span class="wow fadeInUp animated">Email:</span>
+                <a href="" class="wow fadeInUp animated">
+                  <h6>sterun@joollab.com</h6>
+                </a>
+              </div>
+              <div class="inner">
+                <span class="wow fadeInUp animated">Location:</span>
+                <h6 class="wow fadeInUp animated">300, Digital-ro, Guro-gu, Seoul, Republic of Korea</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="contact-page-form">
+            <form method="post" id="contactform-page" class="contact-page form-submit" action="{% url "community:inquiry" %}" accept-charset="utf-8" novalidate="novalidate">
+              {% csrf_token %}
+              <div class="text-wrap clearfix">
+                <fieldset class="name-wrap">
+                  <input type="text" id="name" class="tb-my-input" name="username" tabindex="1" placeholder="Your name" value="" size="32" aria-required="true" required="">
+                </fieldset>
+                <fieldset class="email-wrap">
+                  <input type="email" id="email" class="tb-my-input" name="email" tabindex="2" placeholder="Your email" value="" size="32" aria-required="true" required="">
+                </fieldset>
+                <fieldset class="phone-wrap">
+                  <select name="category" id="category" class="tb-my-input" placeholder="Others" aria-required="true" required="required">
+                    <option value="" selected="selected">Category</option>
+                    <option value="CG1">About Event</option>
+                    <option value="CG2">About Rental Items</option>
+                    <option value="CG3">About Business</option>
+                    <option value="CG4">Others</option>
+                  </select>
+                </fieldset>
+                <!--fieldset class="age-wrap"> <input type="text" id="age" class="tb-my-input" name="site" tabindex="1" placeholder="Age" value="" size="32" aria-required="true" required=""> </fieldset-->
+              </div>
+              <fieldset class="message-wrap">
+                <textarea id="comment-message" name="shortq" rows="3" tabindex="4" placeholder="Message" aria-required="true"></textarea>
+              </fieldset>
+              <button name="submit" type="submit" id="contact-send-button" class="flat-button btn-submit-comment" onsubmit="sweetalert()">
+                <span>Send Message</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact us -->
+
+{% endblock content %}

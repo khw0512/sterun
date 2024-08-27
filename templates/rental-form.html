@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  {% include "modal/size.html" %}
+
+  <!-- preloader 2 -->
+  <div class="hidden mask">
+    <img class="hedden loadingImg" src="{% static "img/spin-loading100.gif" %}">
+  </div>
+  <!-- preloader 2 -->
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="themeflat-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-title-heading">
+            <h1 class="title">Reservation Form</h1>
+          </div>
+
+        </div>
+        <!-- /.col-md-12 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.page-title -->
+  <!-- Main -->
+  <main>
+    <!-- Contact -->
+    <div style="max-width:700px; margin:auto;" class="contact">
+      <div class="container">
+        <!-- Form -->
+        <form method="POST" id="contactForm" name="contactForm" onsubmit="validcheck()">
+          {% csrf_token %}
+
+          <div class="col-md-auto" id="mainContent">
+            <!-- Personal Details -->
+            <div class="row box first">
+              <div class="box-header">
+                <h3>
+                  <strong>1</strong>Personal Details
+                </h3>
+                <p>Subtitle or short description can be set here.</p>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="username" class="label-title forced">Name</label>
+                  <input id="username" class="form-control" name="username" placeholder="Enter Full Name" type="text" oninvalid="this.setCustomValidity('Please Enter Your Name!!')" required="required"/>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="email" class="label-title forced">E-mail</label>
+                  <input id="email" class="form-control" name="email" placeholder="Enter VALID EMAIL and check the result" type="email" required=""/>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                  <label for="address" class="label-title forced">Place to stay</label>
+                  <input id="address" class="form-control" name="address" placeholder="Enter the address of your accommodation" type="text" required=""/>
+                </div>
+              </div>
+            </div>
+            <!-- Personal Details End -->
+
+            <!-- Rental Items -->
+            <div class="row box first">
+              <div class="box-header">
+                <h3>
+                  <strong>2</strong>Items To Rent
+                </h3>
+                <p>Select size of items you want to rent.</p>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <div class="d-flex justify-content-between">
+                    <label for="id_shoes" class="label-title">Running Shoes</label>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#ShoesSizeModal">
+                      size info
+                    </button>
+                  </div>
+                  <select name="shoes" class="wide" id="id_shoes">
+                    <option value="" selected="">---------</option>
+                    {% for shoes in shoeses %}
+                      <option value="{{shoes.pk}}">{{shoes.name}}-{{shoes.size}}mm</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_bag" class="label-title">Phone Pouch</label>
+                  <select name="bag" class="wide" id="id_bag">
+                    <option value="" selected="">---------</option>
+                    {% for bag in bags %}
+                      <option value="{{bag.pk}}">{{bag.name}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <div class="d-flex justify-content-between">
+                    <label for="id_top" class="label-title">Top</label>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#TopSizeModal">
+                      size info
+                    </button>
+                  </div>
+                  <select name="top" class="wide" id="id_top">
+                    <option value="" selected="">---------</option>
+                    {% for top in tops %}
+                      {% if top.gender == "M" %}
+                        <option value="{{top.pk}}">Man
+                          {{top.size}}
+                          {{top.name}}</option>
+                      {% else %}
+                        <option value="{{top.pk}}">Woman
+                          {{top.size}}
+                          {{top.name}}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <div class="d-flex justify-content-between">
+                    <label for="id_bottom" class="label-title">Bottom</label>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#BottomSizeModal">
+                      size info
+                    </button>
+                  </div>
+                  <select name="bottom" class="wide" id="id_bottom">
+                    <option value="" selected="">---------</option>
+                    {% for bottom in bottoms %}
+                      {% if bottom.gender == "M" %}
+                        <option value="{{bottom.pk}}">Man
+                          {{bottom.size}}
+                          {{bottom.name}}</option>
+                      {% else %}
+                        <option value="{{bottom.pk}}">Woman
+                          {{bottom.size}}
+                          {{bottom.name}}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- Rental Items End -->
+            <!-- Date & Time -->
+            <div class="row box first">
+              <div class="box-header">
+                <h3>
+                  <strong>3</strong>Period for Rental
+                </h3>
+                <p>Select the period you want to reserve for.</p>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_start_date" class="label-title forced">Start Date</label>
+                  <input type="date" name="start_date" class="form-control-date" required="" id="id_start_date">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_start_time" class="label-title forced">Start Time</label>
+                  <input type="time" name="start_time" value="00:00" class="form-control-time" id="id_start_time">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_end_date" class="label-title forced">End Date</label>
+                  <input type="date" name="end_date" class="form-control-date" required="" id="id_end_date">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_end_time" class="label-title forced">End Time</label>
+                  <input type="time" name="end_time" value="00:00" class="form-control-time" id="id_end_time">
+                </div>
+              </div>
+            </div>
+            <!-- Date & Time End -->
+
+            <!-- Rental Items -->
+            <div class="row box first">
+              <div class="box-header">
+                <h3>
+                  <strong>4</strong>Guest Run Ticket
+                </h3>
+                <p>If you want attend guest run event, please go to 'GUEST RUN' page.</p>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_event" class="label-title">Guest Run</label>
+                  <select name="event" class="wide" id="id_event">
+                    <option value="" selected="">---------</option>
+                    {% for event in events %}
+                      <option value="{{event.pk}}">{{event.title}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+            </div>
+            <!-- Rental Items End -->
+
+            <!-- Message -->
+            <div class="row box">
+              <div class="box-header">
+                <h3>
+                  <strong>5</strong>Message
+                </h3>
+                <p>If you have something to ask, please tell me.</p>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="inputMessage" class="label-title">Note</label>
+                  <textarea id="inputMessage" class="form-control" name="message" placeholder="Enter Message" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
+                </div>
+              </div>
+            </div>
+            <!-- Message End -->
+            <!-- Terms -->
+            <div class="row box">
+              <div class="box-header">
+                <h3>
+                  <strong>6</strong>Submission
+                </h3>
+                <p>Please accept the terms and conditions below.</p>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="checkbox" id="cbx" class="inp-cbx" style="display:none;" name="terms" value="yes" required="required"/>
+                  <label class="cbx terms" for="cbx" style="width:auto;">
+                    <span>
+                      <svg width="12px" height="10px" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                      </svg>
+                    </span>
+                    <span>Accept<a href="pdf/terms.pdf" class="terms-link" target="_blank">Terms and Conditions</a>.</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- Terms End -->
+            <!-- Submit-->
+            <div class="row box">
+              <div class="col-12">
+                <div class="form-group">
+                  <button type="submit" name="submit" class="btn-form-func" id="submit-form-button">
+                    <span class="btn-form-func-content">Submit</span>
+                    <span class="icon">
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Submit -->
+          </div>
+
+        </form>
+        <!-- Form End -->
+      </div>
+    </div>
+    <!-- Contact End -->
+  </main>
+  <!-- Main End -->
+
+{% endblock content %}

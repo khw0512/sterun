@@ -1,0 +1,498 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Edwards - Lawyers Attorneys and Law Firm HTML Template
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+    
+    CSS INDEX
+    ===================
+	
+    01. Theme default CSS
+    02. Elements CSS
+        02.1 Accordion Elements CSS
+        02.2 Blockquote Elements CSS
+        02.3 Button Elements CSS
+        02.4 Form Elements CSS
+        02.5 Modal Elements CSS
+        02.6 Pagination Elements CSS
+    03. Header CSS
+    04. Login Signup Modal CSS
+    05. Slider/Hero CSS
+    06. Page Heading/Title CSS
+    07. run-event Search CSS
+    08. run-events/run-event List CSS
+    09. run-event Single/Details CSS
+    10. run-event Category CSS
+    11. Company CSS
+    12. Blog CSS
+    13. Comment CSS
+    14. Sidebar CSS
+    15. About CSS
+    16. Team CSS
+    17. Pricing CSS
+    18. APP CSS
+    19. Testimonial CSS
+    20. Funfact CSS
+    21. FAQ CSS
+    22. Contact CSS
+    23. Footer CSS
+
+-----------------------------------------------------------------------------------*/
+
+
+/*----------------------------------------*/
+/*  07. run-event Search CSS
+/*----------------------------------------*/
+/* run-event Search Section */
+.run-event-search-section {
+  position: relative;
+  z-index: 90;
+}
+
+/* run-event Search Wrapper */
+.run-event-search-wrap {
+  position: relative;
+  margin-top: -83px;
+  padding: 60px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+@media only screen and (max-width: 479px) {
+  .run-event-search-wrap {
+    padding: 30px;
+  }
+}
+
+/* run-event Search Form */
+.run-event-search-form .btn {
+  display: block;
+  width: 100%;
+}
+
+/* run-event Search Form 2 */
+.run-event-search-form-2 input[type="text"] {
+  padding: 15px 20px;
+}
+
+.run-event-search-form-2 select {
+  padding: 15px;
+  padding-right: 40px;
+}
+
+.run-event-search-form-2 .btn {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+}
+
+/*----------------------------------------*/
+/*  08. run-events/run-event List CSS
+/*----------------------------------------*/
+/* run-event List Toolbar */
+.run-event-list-toolbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: -10px -10px 20px;
+}
+
+.run-event-list-toolbar p {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.run-event-list-toolbar p select {
+  margin-left: 10px;
+}
+
+/* run-event List Wrapper */
+.run-event-list-wrap {
+  padding: 1px;
+}
+
+/* run-event List */
+.run-event-list {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: -1px;
+  padding: 23px 15px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #EDEDED transparent;
+}
+
+.run-event-list:hover {
+  z-index: 9;
+  border-color: transparent;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.run-event-list .salary-type {
+  text-align: right;
+}
+
+.run-event-list .salary-type .salary-range {
+  font-weight: 600;
+  line-height: 1;
+  font-size:1.3rem;
+  display: block;
+  margin-bottom: 8px;
+  color: #6b6b6b;
+}
+
+.run-event-list .salary-type .badge {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 4px 10px 5px;
+  border-radius: 0;
+}
+
+.run-event-list .content .meta {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  color: #6b6b6b;
+}
+
+.run-event-list .content .meta li {
+  margin-top: 0;
+  margin-right: 20px;
+}
+
+.run-event-list .content .meta li:last-child {
+  margin-right: 0;
+}
+
+.run-event-list .content .meta li i {
+  font-size: 16px;
+  margin-right: 3px;
+}
+
+@media only screen and (max-width: 575px) {
+  .run-event-list .salary-type {
+    margin-left: auto;
+  }
+  .run-event-list .content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 100%;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .run-event-list {
+    padding: 20px 5px;
+  }
+}
+
+/*----------------------------------------*/
+/*  09. run-event Single/Details CSS
+/*----------------------------------------*/
+.run-event-list-details .run-event-details-head {
+  position: relative;
+  z-index: 1;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #EDEDED;
+}
+
+.run-event-list-details .run-event-details-head .salary-type {
+  text-align: right;
+}
+
+.run-event-list-details .run-event-details-head .salary-type .salary-range {
+  font-weight: 600;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+  color: #6b6b6b;
+}
+
+.run-event-list-details .run-event-details-head .salary-type .badge {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 4px 10px 5px;
+  border-radius: 0;
+}
+
+.run-event-list-details .run-event-details-head .content .meta {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  color: #6b6b6b;
+}
+
+.run-event-list-details .run-event-details-head .content .meta li {
+  margin-top: 0;
+  margin-right: 20px;
+}
+
+.run-event-list-details .run-event-details-head .content .meta li:last-child {
+  margin-right: 0;
+}
+
+.run-event-list-details .run-event-details-head .content .meta li i {
+  font-size: 16px;
+  margin-right: 3px;
+}
+
+@media only screen and (max-width: 575px) {
+  .run-event-list-details .run-event-details-head .salary-type {
+    margin-left: auto;
+  }
+  .run-event-list-details .run-event-details-head .content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 100%;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .run-event-list-details .run-event-details-head {
+    padding: 20px 5px;
+  }
+}
+
+.run-event-list-details .run-event-details-body ul {
+  padding-left: 25px;
+}
+
+/*----------------------------------------*/
+/*  10. run-event Category CSS
+/*----------------------------------------*/
+/* run-event Category Slider */
+.run-event-category-slider .slick-list {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* run-event Category */
+.run-event-category {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 190px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  text-align: center;
+}
+
+.run-event-category .inner i {
+  font-size: 50px;
+  line-height: 1;
+  display: block;
+}
+
+.run-event-category .inner .title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.run-event-category.slick-slide {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+[class*="bg-"]:not(.bg-warning).run-event-category {
+  color: #FFFFFF;
+}
+
+[class*="bg-warning"].run-event-category {
+  color: #333;
+}
+
+/*----------------------------------------*/
+/*  11. Company CSS
+/*----------------------------------------*/
+/* Company Slider */
+/* Feature Company */
+.feature-company {
+  display: block;
+  text-align: center;
+}
+
+.feature-company .company-logo {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.feature-company .title {
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.feature-company .open-run-event {
+  display: block;
+  color: #454545;
+}
+
+.feature-company:hover .title {
+  color: #007BFF;
+}
+
+/* Company List Wrapper */
+.company-list-wrap {
+  margin-bottom: -30px;
+}
+
+.company-list-wrap > div,
+.company-list-wrap > [class*="col"] {
+  margin-bottom: 30px;
+}
+
+/* Company List */
+.company-list {
+  display: block;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #EDEDED;
+}
+
+.company-list .company-logo {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.company-list .title {
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.company-list .open-run-event {
+  display: block;
+  margin-bottom: 6px;
+  color: #454545;
+}
+
+.company-list .location {
+  font-size: 13px;
+  color: #454545;
+}
+
+.company-list .location i {
+  margin-right: 10px;
+}
+
+.company-list:hover {
+  z-index: 9;
+  border-color: transparent;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.company-list:hover .title {
+  color: #007BFF;
+}
+
+/*--Section Spacing--*/
+.section-padding {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.event-list-title{
+  font-weight: bold;
+  color:black;
+  margin-bottom:5px;
+}
+
+.title{
+  margin:20px 0 10px 0;
+}

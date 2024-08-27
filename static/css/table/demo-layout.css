@@ -1,0 +1,40 @@
+/* Layout CSS File 
+	===================
+	Item Name: Payler - pricing Packages & tables
+	Author: Ashish Maraviya
+	Version: 2.0
+	Copyright 2020
+===================*/
+
+/*==============
+Layout Page General css
+=================*/
+body{
+    font-family: 'Lato', sans-serif;
+}
+h1, h2, h3, h4, h5, h6{	
+	font-family: 'Lato', sans-serif;
+}
+h2{
+	margin: -7px 0 -2px 0;
+	font-weight: 600;
+    color: #333;
+}
+.title-color{
+	color: #f1f1f1;
+}
+.pp-section{
+    padding: 70px 0 70px 0;
+}
+.section-header{
+	margin-bottom: 35px;
+}
+.section-header-2{
+	margin-bottom: 30px;
+}
+.section-bg{
+	background-color: #222;
+}
+/*==============
+End Layout Page General css
+=================*/

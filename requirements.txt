@@ -1,0 +1,10 @@
+django==4.2.15
+djlint==1.34.1
+black==24.8.0
+django-extensions==3.2.3
+mapboxgl==0.10.2
+requests==2.32.3
+markdown==3.7
+django-summernote==0.8.20.0
+django-imagekit==5.0.0
+django_resized==1.0.2

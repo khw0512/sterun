@@ -1,0 +1,47 @@
+/* CSS File 
+===================
+Item Name: Payler - pricing Packages & tables
+Author: Ashish Maraviya
+Version: 2.0
+Copyright 2020
+===================*/
+@media only screen and (max-width: 991px) {
+	.plan-style-1 .plan-header, .plan-style-3 .plan-header, .plan-style-2 .plan-header {
+		height: auto;
+	}
+	.plan-tables-1 .detail-block, .plan-tables-2 .detail-block, .plan-tables-3 .detail-block{
+		display: none;
+	}
+	.plan-style-2 .plan-list li p, .plan-style-3 .plan-list li p{
+		display: block;
+	}
+	.plan-style-1 .tooltip-info .tooltiptext, .plan-style-2 .tooltip-info .tooltiptext, .plan-style-3 .tooltip-info .tooltiptext {
+		bottom: 95%;
+	}
+	.plan-tables-1 > div:nth-last-child(-n + 2), .plan-tables-4 > div:nth-last-child(-n + 2), .plan-tables-5 > div:nth-last-child(-n + 2){
+	    margin: 30px 0 0 0;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.plan-tables-1 .owl-theme .owl-nav.disabled+.owl-dots {
+		margin-top: -5px;
+	}
+	.plan-tables-2 > div:nth-last-child(-n + 2), .plan-tables-3 > div:nth-last-child(-n + 2) {
+	    margin: 30px 0 0 0;
+	}
+	.plan-padding{
+		padding: 0 15px;
+	}
+}
+@media only screen and (max-width: 576px) {
+	.plan-style-1, .plan-style-2, .plan-style-3, .plan-style-4, .plan-style-5{
+		max-width: 350px;
+		margin: auto !important;
+	}
+	.plan-tables-1 .owl-theme .owl-nav.disabled+.owl-dots {
+		margin-top: 25px;
+	}
+	.plan-tables-1 > div:nth-last-child(-n + 3), .plan-tables-2 > div:nth-last-child(-n + 3), .plan-tables-3 > div:nth-last-child(-n + 3), .plan-tables-4 > div:nth-last-child(-n + 3), .plan-tables-5 > div:nth-last-child(-n + 3) {
+	    margin: 30px 0 0 0;
+	}
+}

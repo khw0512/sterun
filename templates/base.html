@@ -1,0 +1,328 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <!--<![endif]-->
+
+  <head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>STERUN</title>
+
+    <meta name="author" content="sterun.kr">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-utilities.rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-utilities.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.rtl.min.css' %}">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/colors/color1.css' %}" id="colors">
+
+    <!-- Carousel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+
+    <!-- Wow JS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper-bundle.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.min.css' %}">
+
+    <!-- Favicon and touch icons -->
+    <link href="{% static 'img/icon/favicon.png' %}" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="{% static 'img/icon/favicon.png' %}" rel="apple-touch-icon-precomposed">
+    <link href="{% static 'img/icon/favicon.png' %}" rel="shortcut icon">
+
+    <!-- Form CSS -->
+    <link href="{% static "css/form/form-style.css" %}" id="cpswitch" rel="stylesheet">
+
+    <!-- Table CSS -->
+    <link href="{% static "css/table/pricing-tables.css" %}" rel="stylesheet">
+    <link href="{% static "css/table/pricing-tables-responsive.css" %}" rel="stylesheet">
+
+    <!-- Event Board CSS -->
+    <link href="{% static "css/board/slick.css" %}" rel="stylesheet">
+    <link href="{% static "css/board/style.css" %}" rel="stylesheet">
+
+    <!--[if lt IE 9]> <script src="javascript/html5shiv.js"></script> <script src="javascript/respond.min.js"></script> <![endif]-->
+  </head>
+
+  <body class="header-sticky">
+    <!-- preload -->
+    <div class="preload preload-container">
+      <div class="swapping-squares-spinner">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+    </div>
+    <!-- /preload -->
+    <!-- Header -->
+    <div class="header-top">
+      <div class="themeflat-container">
+        <div class="header-top-inner">
+          <div class="address">
+            <a href="mailto:">
+              <i class="icon-Vector"></i>sterun@joollab.com</a>
+            <address>
+              <i class="icon-Vector-22"></i>300, Digital-ro, Guro-gu, Seoul, Republic of Korea</address>
+          </div>
+          <div class="social-icon">
+            <a href="facebook.com">
+              <i class="icon-facebook"></i>
+            </a>
+            <a href="instagram.com">
+              <i class="icon-instagram"></i>
+            </a>
+            <a href="youtube.com">
+              <i class="icon-youtube"></i>
+            </a>
+            <a href="twitter.com">
+              <i class="icon-twitter"></i>
+            </a>
+            <a href="pinterest.com">
+              <i class="icon-pinterest"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header id="header" class="header style1 clearfix">
+      <div class="themeflat-container">
+        <div class="header-inner">
+          <div id="logo" class="logo">
+            <a href="{% url "community:index" %}" rel="home">
+              <img height="auto" width="auto" id="a2" src="{% static 'img/logo.png' %}" alt="image">
+            </a>
+          </div>
+          <!-- /.logo -->
+          <div class="nav-wrap">
+            <div class="btn-menu">
+              <span class="line-1"></span>
+            </div>
+            <!-- //mobile menu button -->
+            <nav id="mainnav" class="mainnav">
+              <div id="logo-mobie" class="logo">
+                <a href="index.html" rel="home">
+                  <img height="auto" width="auto" src="{% static 'img/logo.png' %}" alt="image">
+                </a>
+              </div>
+              <!-- /.logo -->
+              <ul class="menu">
+                <li>
+                  <a id="nav-home" href="{% url "community:index" %}">Home</a>
+                </li>
+                <li>
+                  {% if 'about' in request.path %}
+                    <a style="color:#C4E92E;" id="nav-us" href="{% url "community:about_us" %}">About us</a>
+                  {% else %}
+                    <a id="nav-us" href="{% url "community:about_us" %}">About us</a>
+                  {% endif %}
+                </li>
+                <li>
+                  {% if 'event' in request.path %}
+                    <a style="color:#C4E92E;" id="nav-event" href="{% url "community:events" %}">Guest Run</a>
+                  {% else %}
+                    <a id="nav-event" href="{% url "community:events" %}">Guest Run</a>
+                  {% endif %}
+                </li>
+                <li>
+                  {% if 'rental' in request.path %}
+                    <a style="color:#C4E92E;" id="nav-rental" href="{% url "community:rental_items" %}">Rental Items</a>
+                  {% else %}
+                    <a id="nav-rental" href="{% url "community:rental_items" %}">Rental Items</a>
+                  {% endif %}
+                </li>
+                <li class="nav-right-section">
+                  {% if 'mypage' in request.path %}
+                    <a style="color:#C4E92E;;" id="nav-mypage" href="{% url "community:search" %}">My Page</a>
+                  {% else %}
+                    <a id="nav-mypage" href="{% url "community:search" %}">My Page</a>
+                  {% endif %}
+                </li>
+                <li class="nav-right-section">
+                  {% if 'contact' in request.path %}
+                    <a style="color:#C4E92E;" id="nav-contact" href="{% url "community:contact_us" %}">Contact</a>
+                  {% else %}
+                    <a id="nav-contact" href="{% url "community:contact_us" %}">Contact</a>
+                  {% endif %}
+                </li>
+              </ul>
+              <!-- /.menu -->
+            </nav>
+            <!-- /.mainnav -->
+          </div>
+          <!-- /.nav-wrap -->
+          <div class="header-right">
+            <a href="{% url "community:search" %}">
+              <i id="mypage-icon" class="fa-regular fa-user">
+                <span class="mypage-button">my page</span></i>
+            </a>
+            <a href="{% url "community:contact_us" %}" rel="contact">
+              <button class="btn-contact">Contact Us</button>
+            </a>
+            <!-- /.login/register -->
+          </div>
+          <!-- /.login-wrap -->
+        </div>
+        <!-- /.header-inner -->
+      </div>
+    </header>
+    <!-- /.header -->
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer background-black">
+      <div class="footer-widgets">
+        <div class="themeflat-container">
+          <div class="row footer-top">
+            <div class="col-xxl-4 col-lg-4 col-xl-4 col-md-12 logo-footer">
+              <div class="widget">
+                <div class="textwidget">
+                  <img height="auto" width="auto" id="a1" src="{% static 'img/logo-footer.png'%}" alt="images">
+                  <p>Welcome to our running community! Discover the joy of running, connect with fellow enthusiasts, and unlock your full potential with our expert resources and training programs.
+                  </p>
+                </div>
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /.col-md-4 -->
+
+            <div class="col-xxl-4 col-lg-4 col-xl-4 col-md-6 link-footer">
+              <div class="widget widget_menu-footer">
+                <h5 class="widget-title">Quick Links</h5>
+                <ul class="menu-footer">
+                  <li>
+                    <a href="{% url "community:search" %}">My Page</a>
+                  </li>
+                  <li>
+                    <a href="{% url "community:events" %}">Geust Run</a>
+                  </li>
+                  <li>
+                    <a href="{% url "community:rental_items" %}">Rental Items</a>
+                  </li>
+                  <li>
+                    <a href="{% url "community:contact_us" %}">Contact Us</a>
+                  </li>
+                </ul>
+                <!-- /.menu -->
+              </div>
+              <!-- /.widget -->
+              <div class="widget widget_menu-footer">
+                <h5 class="widget-title">Forms</h5>
+                <ul class="menu-footer">
+                  <li>
+                    <a href="{% url "community:events" %}">Guest Run Reservation</a>
+                  </li>
+                  <li>
+                    <a href="{% url "rental:rental_register" %}">Item Rental Reservation</a>
+                  </li>
+                </ul>
+                <!-- /.menu -->
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /.col-md-4 -->
+
+            <div class="col-xxl-4 col-lg-4 col-xl-4 col-md-6 new-letter">
+              <div class="widget widget_text">
+                <h5 class="widget-title">Please Send Message</h5>
+
+                <p>
+                  <i class="icon-MapPin"></i>300, Digital-ro, Guro-gu, Seoul, Republic of Korea</p>
+
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /.col-md-4 -->
+
+          </div>
+          <!-- /.row -->
+          <div class="row footer-bottom">
+            <div class="col-md-6 col-sm-12">
+              <div class="copyright">
+                <p>©2024
+                  <a href="{% url "community:index" %}">
+                    STERUN.</a>
+                  All Rights Reserved.
+                </p>
+              </div>
+            </div>
+            <!-- /.col-md-6 -->
+            <div class="col-md-6 col-sm-12">
+              <ul class="link-footer-bottom">
+                <li>
+                  <a href="#">Terms Of Services</a>
+                </li>
+                <li>
+                  <a href="#">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#">Cookie Policy</a>
+                </li>
+                <li>
+                  <div style="width: 30px;"></div>
+                </li>
+              </ul>
+              <!-- /.menu -->
+            </div>
+            <!-- /.col-md-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.footer-widgets -->
+    </footer>
+    <!-- Footer -->
+
+    <!-- Go Top -->
+    <a class="go-top">
+      <i class="icon-ctrl"></i>
+    </a>
+
+    <script src="https://kit.fontawesome.com/df860d1a81.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/count-down.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-waypoints.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-countTo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      var logo2url = "{% static 'img/logo2@.png' %}";
+      var logov2url = "{% static 'img/logo-v2@.png' %}";
+      var logofooter2url = "{% static 'img/logo-footer2@.png' %}";
+    </script>
+  </body>
+
+</html>

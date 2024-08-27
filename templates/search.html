@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="overlay-menu-mobie">
+    <div class="close-btn">
+      <span class="close-menus"></span>
+    </div>
+  </div>
+
+  <div class="page-title" style="z-index: 99; min-height:70vh;">
+    <div class="themeflat-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div style="height: 30px;"></div>
+          {% if result %}
+            <div class="page-title-heading">
+              <h1 class="title" style="color:pink;">No Result</h1>
+            </div>
+          {% endif %}
+          <div class="page-title-heading">
+            <h1 class="title">Search For Your Reservation</h1>
+          </div>
+          <div>
+            <div style="height:50px;"></div>
+            <div class="tocenter">
+              <div class="search-form-inner" id="form_search_inner" style="z-index: 1000;">
+                <form action="{% url "community:check" %}" method="post" class="search-form products-search searchform ajax-search">
+                  {% csrf_token %}
+                  <label>
+                    <input type="search" value="" name="reservation_id" class="search-field input-search" style="border:solid 1px white; color: white;" placeholder="Search for Reservation ID" autocomplete="off">
+                  </label>
+                  <button type="submit" class="search-submit" style="border:solid 1px white;">SEARCH</button>
+                  <div class="clear-input">
+                    <i class="onsus-icon-close"></i>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-12 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+
+{% endblock content %}

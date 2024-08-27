@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/sterun_icon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <title>STERUN</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    {% if user.is_staff %}
+      {% for data in reservation %}
+        <div class="tocenter">
+          <div class="flex-row" style="width:100%; margin: 30px 0 20px 0; justify-content:space-around;">
+            <div>
+              <p style="font-size:2.5rem; font-weight:bold; color:red;">해당 데이터를 삭제하시겠습니까?</p>
+            </div>
+          </div>
+        </div>
+        <table border="1" bordercolor="green" style="font-size:0.6rem; width:100%;">
+          <tr style="background-color:black; color:white;">
+            <th scope="col" style="width:30px; text-align:center">종료여부</th>
+            <th scope="col">상태</th>
+            <th scope="col">예약번호</th>
+            <th scope="col">예약자</th>
+            <th scope="col">시작날짜</th>
+            <th scope="col">종료날짜</th>
+            <th scope="col">상의</th>
+            <th scope="col">하의</th>
+            <th scope="col">운동화</th>
+            <th scope="col">가방</th>
+            <th scope="col">장소</th>
+            <th scope="col">가격</th>
+            <th scope="col">설명</th>
+          </tr>
+          <tr>
+            {% if data.completed == True %}
+              <td style="color:white; font-weight:bold; background-color:grey; text-align:center;">완료</td>
+            {% else %}
+              <td style="color:green; font-weight:bold; text-align:center;">진행중</td>
+            {% endif %}
+            <td>{{data.status}}</td>
+            <td>{{data.reserv_id}}</td>
+            <td>{{data.username}}</td>
+            <td>{{data.start_date | date:"Y-m-d"}}</td>
+            <td>{{data.end_date | date:"Y-m-d"}}</td>
+            {% if data.top.name == None %}
+              <td style='background-color:#DBDBDB;'>-</td>
+            {% else %}
+              <td>{{data.top}}</td>
+            {% endif %}
+            {% if data.bottom.name == None %}
+              <td style='background-color:#DBDBDB;'>-</td>
+            {% else %}
+              <td>{{data.bottom}}</td>
+            {% endif %}
+            {% if data.shoes.name == None %}
+              <td style='background-color:#DBDBDB;'>-</td>
+            {% else %}
+              <td>{{data.shoes}}</td>
+            {% endif %}
+            {% if data.bag.name == None %}
+              <td style='background-color:#DBDBDB;'>-</td>
+            {% else %}
+              <td>{{data.bag}}</td>
+            {% endif %}
+            <td>{{data.address}}</td>
+            <td>{{data.amount}}</td>
+            <td>{{data.message}}</td>
+          </tr>
+
+        </table>
+        <div class="flex-row">
+          <div class="flex-column">
+            <div class="del-button">
+              <a href="{% url "rental:delreserv" data.pk %}">
+                <button style="padding: 5px; color:blue; font-weight:bold; font-size:1.5rem;">삭제</button>
+              </a>
+            </div>
+            <div class="tocenter" style="margin:20px 0 0 0;">
+              <a href="{% url "community:data" %}">
+                <button style="padding: 5px; color:blue; font-weight:bold; font-size:1.5rem;">뒤로가기</button>
+              </a>
+            </div>
+          </div>
+          <table style="margin:20px 0 0 20px;" border="1">
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST1</th>
+              <td>예약 양식 제출 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST2</th>
+              <td>예약 완료 및 결제 대기</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST3</th>
+              <td>결제 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST4</th>
+              <td>배송 중</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST5</th>
+              <td>배송 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST6</th>
+              <td>반납 완료</td>
+            </tr>
+            <tr style='font-weight:normal; font-size:0.6rem;'>
+              <th>ST7</th>
+              <td>입고 완료</td>
+            </tr>
+          </table>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+
+</html>
