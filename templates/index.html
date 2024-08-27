@@ -377,71 +377,72 @@
               <div class="list-contact">
                 <div class="contact">
                   <span>
-                    Phone:
+                    Instagram Message
                   </span>
-                  <p class="address">(555) 123-4567</p>
+                  <p class="address">
+                    <a href="https://www.instagram.com/sterun.kr/" target="_blank"></p>
+                  </div>
+                  <div class="contact">
+                    <span>
+                      Email:
+                    </span>
+                    <p class="address">sterun@joollab.com</p>
+                  </div>
                 </div>
-                <div class="contact">
-                  <span>
-                    Email:
-                  </span>
-                  <p class="address">sterun@joollab.com</p>
+                <ul class="social-media">
+                  <li>
+                    <a href="twitter.com">
+                      <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="dribbble.com">
+                      <i class="icon-youtube"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="behance.com">
+                      <i class="icon-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="pinterest">
+                      <i class="fa-brands fa-spotify"></i>
+                    </a>
+                  </li>
+                </ul>
+                <div class="form-register">
+                  <form action="{% url "community:inquiry" %}" method="post" id="registerform" class="register-form" novalidate="">
+                    {% csrf_token %}
+                    <fieldset class="name-container">
+                      <input type="text" id="author" placeholder="Your name*" class="tb-my-input" name="username" value="" size="32" aria-required="true">
+                    </fieldset>
+                    <fieldset class="email-container">
+                      <input type="text" id="email" placeholder="Your email*" class="tb-my-input" name="email" value="" size="32" aria-required="true">
+                    </fieldset>
+                    <fieldset class="about-container">
+                      <select name="category" id="category" class="tb-my-input" aria-required="true">
+                        <option value="CG1">About Event</option>
+                        <option value="CG2">About Rental Items</option>
+                        <option value="CG3">About Business</option>
+                        <option value="CG4">Others</option>
+                      </select>
+                    </fieldset>
+                    <fieldset class="shortq-container">
+                      <input type="text" id="shortq" placeholder="Short Qeustion*" class="tb-my-input" name="shortq" value="" size="32" aria-required="true">
+                    </fieldset>
+                    <p class="form-submit">
+                      <input name="submit" type="submit" id="contact-send-button" class="submit-register" value="Send Message">
+                    </p>
+                  </form>
                 </div>
-              </div>
-              <ul class="social-media">
-                <li>
-                  <a href="twitter.com">
-                    <i class="fa-brands fa-x-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="dribbble.com">
-                    <i class="icon-youtube"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="behance.com">
-                    <i class="icon-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="pinterest">
-                    <i class="fa-brands fa-spotify"></i>
-                  </a>
-                </li>
-              </ul>
-              <div class="form-register">
-                <form action="{% url "community:inquiry" %}" method="post" id="registerform" class="register-form" novalidate="">
-                  {% csrf_token %}
-                  <fieldset class="name-container">
-                    <input type="text" id="author" placeholder="Your name*" class="tb-my-input" name="username" value="" size="32" aria-required="true">
-                  </fieldset>
-                  <fieldset class="email-container">
-                    <input type="text" id="email" placeholder="Your email*" class="tb-my-input" name="email" value="" size="32" aria-required="true">
-                  </fieldset>
-                  <fieldset class="about-container">
-                    <select name="category" id="category" class="tb-my-input" aria-required="true">
-                      <option value="CG1">About Event</option>
-                      <option value="CG2">About Rental Items</option>
-                      <option value="CG3">About Business</option>
-                      <option value="CG4">Others</option>
-                    </select>
-                  </fieldset>
-                  <fieldset class="shortq-container">
-                    <input type="text" id="shortq" placeholder="Short Qeustion*" class="tb-my-input" name="shortq" value="" size="32" aria-required="true">
-                  </fieldset>
-                  <p class="form-submit">
-                    <input name="submit" type="submit" id="contact-send-button" class="submit-register" value="Send Message">
-                  </p>
-                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="graphic-form background-green"></div>
-  <!-- Widget form conatct-->
+    <div class="graphic-form background-green"></div>
+    <!-- Widget form conatct-->
 
-{% endblock content %}
+  {% endblock content %}
