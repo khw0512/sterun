@@ -31,7 +31,7 @@
         <div class="flex-row" style="width:100%; margin: 30px 0 20px 0; justify-content:space-around;">
           <div style="width:10px;"></div>
           <div>
-            <h2>이벤트 전체 데이터</h2>
+            <h2>아래 이벤트 데이터를 삭제하시겠습니까?</h2>
           </div>
           <div class="flex-row">
             <a style="border:solid 1px; font-size:0.8rem; padding:2px; margin:10px;" href="{% url "community:index" %}">Go home</a>
@@ -40,27 +40,26 @@
           </div>
         </div>
       </div>
+      {% for data in events %}
+        <div>
+          <table border="1px solid black" bordercolor="green" style="font-size:0.6rem; width:100%;">
+            <tr style="background-color:black; color:white;">
+              <th scope="col" style="width:30px; text-align:center">수정</th>
+              <th scope="col" style="width:30px; text-align:center">종료여부</th>
+              <th scope="col">상태</th>
+              <th scope="col">예약번호</th>
+              <th scope="col">이벤트명</th>
+              <th scope="col">담당자</th>
+              <th scope="col">시작날짜</th>
+              <th scope="col">종료날짜</th>
+              <th scope="col">시작시간</th>
+              <th scope="col">종료시간</th>
+              <th scope="col">스타트 지점</th>
+              <th scope="col">레벨</th>
+              <th scope="col">루트</th>
+              <th scope="col">가격</th>
+            </tr>
 
-      <div>
-        <table border="1px solid black" bordercolor="green" style="font-size:0.6rem; width:100%;">
-          <tr style="background-color:black; color:white;">
-            <th scope="col" style="width:30px; text-align:center">수정</th>
-            <th scope="col" style="width:30px; text-align:center">종료여부</th>
-            <th scope="col">상태</th>
-            <th scope="col">예약번호</th>
-            <th scope="col">이벤트명</th>
-            <th scope="col">담당자</th>
-            <th scope="col">시작날짜</th>
-            <th scope="col">종료날짜</th>
-            <th scope="col">시작시간</th>
-            <th scope="col">종료시간</th>
-            <th scope="col">스타트 지점</th>
-            <th scope="col">레벨</th>
-            <th scope="col">루트</th>
-            <th scope="col">가격</th>
-            <th scope="col">삭제</th>
-          </tr>
-          {% for data in events %}
             <tr>
               <td style="width:30px; text-align:center">
                 <a href="{% url "events:update_event" data.pk %}">
@@ -93,25 +92,19 @@
               <td>{{data.level}}</td>
               <td>{{data.route}}</td>
               <td>{{data.amount}}</td>
-              <td style="width:30px; text-align:center">
-                <div class="del-button">
-                  <a href="{% url "events:deleventpage" data.pk %}">
-                    <button>삭제</button>
-                  </a>
-                </div>
-              </td>
             </tr>
-          {% endfor %}
-        </table>
-        <div class="flex-column">
-          <div class="tocenter" style="margin:20px 0 0 0;">
-            <a href="{% url "events:event_write" %}">
-              <button style="padding: 5px; border:solid 2px green;">이벤트 등록</button>
-            </a>
+
+          </table>
+          <div class="flex-column">
+            <div class="tocenter" style="margin:20px 0 0 0;">
+              <a href="{% url "events:delevent" data.pk %}">
+                <button style="padding: 5px; border:solid 2px green;">이벤트 삭제</button>
+              </a>
+            </div>
           </div>
         </div>
 
-      </div>
+      {% endfor %}
     {% else %}
       <div class="tocenter">
         <div class="flex-row" style="width:100%; margin: 30px 0 20px 0; justify-content:space-around;">

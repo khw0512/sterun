@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/icon/favicon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+
+    <title>STERUN-ADMIN</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+    <style>
+      p > label {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+
+      .form-control {
+        width: 100%;
+        margin: 0 0 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="tocenter" style="margin:30px 0 0 0">
+      <div style="max-width:100%;">
+        <h2 style="margin:0 0 20px 0;">예약 수정하기</h3>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.media }}
+          {{ form.as_p }}
+          <button style="font-size: 1.3rem; margin-top:20px; padding: 5px; background-color:#7695FF;" type="submit">
+            저장
+          </button>
+        </form>
+        <div style="height:20px;"></div>
+        <div>
+          <a href="{% url "community:event_table" %}">
+            <button style="font-size: 1.3rem; padding:5px; margin-bottom:30px; background-color:#9DBDFF;">뒤로 가기</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

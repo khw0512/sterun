@@ -3,13 +3,13 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 import requests
 
 from events.models import GuestRun
 from items.models import Item
 from rental.models import Reservation
-from .forms import WriteForm
+from .forms import *
 
 def event_write(request):
     form = WriteForm(request.POST, request.FILES)
@@ -111,3 +111,29 @@ def event_register(request, pk):
         return redirect("community:mypage", id)
     else:
         return render(request, "run-form.html", events)
+    
+def update_event(request, pk):
+    event = get_object_or_404(GuestRun, pk=pk)
+    form = UpdateForm(request.POST, request.FILES, instance=event)
+    if request.method == "POST":
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.save()
+            return redirect("community:event_table")
+        else:
+            return redirect("community:event_table")
+    else:
+        form = UpdateForm(instance=event)
+        return render(request, "admin/event_edit.html", {"form": form} )
+    
+def delevent(request, pk):
+    if request.method == "GET":
+        reservation = GuestRun.objects.get(pk=pk)
+        reservation.delete()
+        return redirect("community:event_table")
+    else:
+        return redirect("community:event_table")
+    
+def deleventpage(request, pk):
+    event = GuestRun.objects.filter(pk=pk)
+    return render(request, "admin/event_del.html", {"events": event})
