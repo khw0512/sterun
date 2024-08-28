@@ -24,10 +24,10 @@ class Reservation(models.Model):
     username = models.CharField(max_length=20)
     email = models.CharField(max_length=50, blank=False)
     address = models.CharField(max_length=50, blank=False)
-    start_date = models.DateField()
-    start_time = models.TimeField(blank=True, default=timezone.now)
-    end_date = models.DateField()
-    end_time = models.TimeField(blank=True, default=timezone.now)
+    start_date = models.DateField(blank=True,null=True)
+    start_time = models.TimeField(blank=True, null=True, default=timezone.now)
+    end_date = models.DateField(blank=True,null=True)
+    end_time = models.TimeField(blank=True, null=True, default=timezone.now)
     top = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
@@ -66,8 +66,8 @@ class Reservation(models.Model):
         blank=True,
         null=True,
     )
-    event_date = models.DateField()
-    event_time = models.TimeField(blank=True, default=timezone.now)
+    event_date = models.DateField(blank=True,null=True)
+    event_time = models.TimeField(blank=True, null=True, default=timezone.now)
     image = models.ImageField(upload_to="reservation", blank=True)
     message = models.TextField(blank=True)
     status = models.CharField(
