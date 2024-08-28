@@ -50,14 +50,18 @@
             <th scope="col">예약번호</th>
             <th scope="col">예약자</th>
             <th scope="col">연락처</th>
-            <th scope="col">시작날짜</th>
-            <th scope="col">종료날짜</th>
+            <th scope="col">렌트시작날짜</th>
+            <th scope="col">렌트종료날짜</th>
             <th scope="col">상의</th>
             <th scope="col">하의</th>
             <th scope="col">운동화</th>
             <th scope="col">가방</th>
-            <th scope="col">장소</th>
-            <th scope="col">가격</th>
+            <th scope="col">배송</th>
+            <th scope="col">배송장소</th>
+            <th scope="col">아이템 가격</th>
+            <th scope="col">이벤트</th>
+            <th scope="col">이벤트날짜</th>
+            <th scope="col">이벤트시간</th>
             <th scope="col">설명</th>
             <th scop="com">삭제</th>
           </tr>
@@ -99,8 +103,12 @@
               {% else %}
                 <td>{{data.bag}}</td>
               {% endif %}
+              <td>{{data.delivery}}</td>
               <td>{{data.address}}</td>
               <td>{{data.amount}}</td>
+              <td>{{data.event}}</td>
+              <td>{{data.event_date | date:"Y-m-d"}}</td>
+              <td>{{data.event_time | time:"H:i"}}</td>
               <td>{{data.message}}</td>
               <td style="width:30px; text-align:center">
                 <div class="del-button">

@@ -552,7 +552,7 @@ p.flat-description-slider {
 	width: 100%;
 }
 .tf-widget-form-contact {
-	background-image: url("/static/img/retinal/contact.jpg");
+	background-color: #2E2E2E;
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;

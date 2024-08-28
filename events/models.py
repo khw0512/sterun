@@ -54,4 +54,4 @@ class GuestRun(models.Model):
     completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.completed) + "_" + str(self.manager) + "_" + str(self.title)+"_"+ str(self.event_id)
+        return str(self.completed) + "_" + str(self.status)+"_"+ str(self.manager) + "_" + str(self.title)+"_"+ str(self.event_id)

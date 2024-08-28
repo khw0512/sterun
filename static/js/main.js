@@ -481,12 +481,6 @@
     $(".upload-name").val(fileName);
   }); //upload file name
 
-  // size check modal
-
-  //sweetalert
-  var sweetalert = function() {
-      swal("Messate Sent!!",{buttons:false});
-  }
   // Dom Ready
   $(function () {
     if (matchMedia("only screen and (min-width: 991px)").matches) {

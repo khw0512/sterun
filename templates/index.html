@@ -21,7 +21,7 @@
           <div class="slide-item slide-v2">
             <div class="silde-content">
               <span class="flat-sub-slider">For All Of Travelers</span>
-              <h1 class="flat-title-slider">Embrace the Adventure of Running with Us
+              <h1 class="flat-title-slider">Enjoyable Running Experience In Korea
               </h1>
               <p class="flat-description-slider v2-slide">The platform that turns aspirations into accomplishments. Join now and unleash your potential in the world of fitness and wellness.
               </p>
@@ -93,7 +93,7 @@
           </div>
           <!-- header style v2 -->
         </div>
-        <div class="swiper image-carousel wow fadeInUp animated">
+        <div class="swiper imgSwiter image-carousel wow fadeInUp animated">
           <div class="image-about-us swiper-wrapper">
             <img class="swiper-slide" src="{% static 'img/about/run1.jpg' %}" alt="">
             <img class="swiper-slide" src="{% static 'img/about/run2.jpg' %}" alt="">
@@ -102,6 +102,7 @@
             <img class="swiper-slide" src="{% static 'img/about/run5.jpg' %}" alt="">
             <img class="swiper-slide" src="{% static 'img/about/run6.jpg' %}" alt="">
           </div>
+
         </div>
       </div>
     </div>
@@ -292,8 +293,8 @@
                 <div class="category-product">
                   <a href="#">STERUN</a>
                 </div>
-                <div class="price">$8.00/a day</div>
-                <div class="price">$2.00/a addtional day</div>
+                <div class="price">$10.00/a day</div>
+                <div class="price">$3.00/a addtional day</div>
               </div>
             </div>
           </div>
@@ -310,10 +311,10 @@
                   <a href="#">STERUN</a>
                 </span>
                 <div class="price">
-                  <span class="price-sale">$2.00/a day</span>
-                  <span class="price-product">$4.00/a day</span>
-                  <span class="percent-sale">-50%</span>
+                  <span class="price-sale">$5.00/a day</span>
+                  <!--span class="price-product">$4.00/a day</span> <span class="percent-sale">-50%</span-->
                 </div>
+                <div class="price">$2.00/a addtional day</div>
               </div>
             </div>
           </div>
@@ -329,7 +330,8 @@
                 <span class="category-product">
                   <a href="#">STERUN</a>
                 </span>
-                <span class="price">$4.00/a day</span>
+                <span class="price">$5.00/a day</span>
+                <div class="price">$2.00/a addtional day</div>
               </div>
             </div>
           </div>
@@ -345,11 +347,13 @@
                 <span class="category-product">
                   <a href="#">STERUN</a>
                 </span>
-                <span class="price">$2.00/a day</span>
+                <span class="price">$3.00/a day</span>
+                <div class="price">$1.00/a addtional day</div>
               </div>
             </div>
           </div>
         </div>
+        <div style="height:50px;"></div>
         <div class="d-flex justify-content-center">
           <a href="{% url "community:rental_items" %}">
             <button class="flat-button-white">Rental Items</button>
@@ -362,9 +366,9 @@
   <!-- Widget product -->
 
   <!-- Widget form conatct-->
-  <div class="tf-widget-form-contact">
+  <div class="tf-widget-form-contact" style="">
     <div class="themeflat-container">
-      <div class="tf-form-contact">
+      <div class="tf-form-contact" style="padding-top:0px !important;">
         <div class="row">
           <div class="col-md-6 pd-form">
             <img style="height:100%; width:100%; object-fit:cover; object-position:left;" src="{% static "img/background/contact-2.jpg" %}" alt="">
@@ -377,72 +381,61 @@
               <div class="list-contact">
                 <div class="contact">
                   <span>
-                    Instagram Message
+                    DM:
                   </span>
                   <p class="address">
-                    <a href="https://www.instagram.com/sterun.kr/" target="_blank"></p>
-                  </div>
-                  <div class="contact">
+                    <a href="https://www.instagram.com/sterun.kr/" target="_blank" style="color:white;">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
                     <span>
-                      Email:
+                      &nbsp;
                     </span>
-                    <p class="address">sterun@joollab.com</p>
-                  </div>
-                </div>
-                <ul class="social-media">
-                  <li>
-                    <a href="twitter.com">
+                    <a href="https://www.x.com/joollab" target="_blank" style="color:white;">
                       <i class="fa-brands fa-x-twitter"></i>
                     </a>
-                  </li>
-                  <li>
-                    <a href="dribbble.com">
-                      <i class="icon-youtube"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="behance.com">
-                      <i class="icon-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="pinterest">
-                      <i class="fa-brands fa-spotify"></i>
-                    </a>
-                  </li>
-                </ul>
-                <div class="form-register">
-                  <form action="{% url "community:inquiry" %}" method="post" id="registerform" class="register-form" novalidate="">
-                    {% csrf_token %}
-                    <fieldset class="name-container">
-                      <input type="text" id="author" placeholder="Your name*" class="tb-my-input" name="username" value="" size="32" aria-required="true">
-                    </fieldset>
-                    <fieldset class="email-container">
-                      <input type="text" id="email" placeholder="Your email*" class="tb-my-input" name="email" value="" size="32" aria-required="true">
-                    </fieldset>
-                    <fieldset class="about-container">
-                      <select name="category" id="category" class="tb-my-input" aria-required="true">
-                        <option value="CG1">About Event</option>
-                        <option value="CG2">About Rental Items</option>
-                        <option value="CG3">About Business</option>
-                        <option value="CG4">Others</option>
-                      </select>
-                    </fieldset>
-                    <fieldset class="shortq-container">
-                      <input type="text" id="shortq" placeholder="Short Qeustion*" class="tb-my-input" name="shortq" value="" size="32" aria-required="true">
-                    </fieldset>
-                    <p class="form-submit">
-                      <input name="submit" type="submit" id="contact-send-button" class="submit-register" value="Send Message">
-                    </p>
-                  </form>
+                  </p>
                 </div>
+                <div class="contact">
+                  <span>
+                    Email:
+                  </span>
+                  <p class="address">sterun@joollab.com</p>
+                </div>
+              </div>
+
+              <div class="form-register">
+                <form action="{% url "community:inquiry" %}" method="post" id="registerform" class="register-form" novalidate="">
+                  {% csrf_token %}
+                  <fieldset class="name-container">
+                    <input type="text" id="author" placeholder="Your name*" class="tb-my-input" name="username" value="" size="32" aria-required="true">
+                  </fieldset>
+                  <fieldset class="email-container">
+                    <input type="text" id="email" placeholder="Your email*" class="tb-my-input" name="email" value="" size="32" aria-required="true">
+                  </fieldset>
+                  <fieldset class="about-container">
+                    <select name="category" id="category" class="tb-my-input" aria-required="true">
+                      <option value="CG1">About Event</option>
+                      <option value="CG2">About Rental Items</option>
+                      <option value="CG3">About Business</option>
+                      <option value="CG4">Others</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="shortq-container">
+                    <input type="text" id="shortq" placeholder="Short Qeustion*" class="tb-my-input" name="shortq" value="" size="32" aria-required="true">
+                  </fieldset>
+                  <p class="form-submit">
+                    <input name="submit" type="submit" id="contact-send-button" class="submit-register" value="Send Message">
+                  </p>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="graphic-form background-green"></div>
-    <!-- Widget form conatct-->
+  </div>
+  <div class="graphic-form background-green"></div>
+  <!-- Widget form conatct-->
+</div>
 
-  {% endblock content %}
+{% endblock content %}

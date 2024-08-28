@@ -47,22 +47,29 @@ def rental_register(request):
         username = request.POST.get("username")
         id = username + datetime.now().strftime("T%H%M%S")
         email = request.POST.get("email")
+        if request.POST.get("delivery") == 'on':
+            delivery = True
+        else:
+            delivery = False
 
         reservation = Reservation(
             reserv_id=id,
             username=username,
             email=email,
-            message=request.POST.get("message"),
-            start_date=request.POST.get("start_date"),
-            start_time=request.POST.get("start_time"),
-            end_date=request.POST.get("end_date"),
-            end_time=request.POST.get("end_time"),
+            address=request.POST.get("address"),
             top=top,
             bottom=bottom,
             shoes=shoes,
             bag=bag,
-            address=request.POST.get("address"),
+            delivery = delivery,
+            start_date=request.POST.get("start_date"),
+            start_time=request.POST.get("start_time"),
+            end_date=request.POST.get("end_date"),
+            end_time=request.POST.get("end_time"),
             event=event_data,
+            event_date = request.POST.get("event_date"),
+            event_time = request.POST.get("event_time"),
+            message=request.POST.get("message"),
         )
 
         reservation.save()
@@ -121,30 +128,30 @@ def update(request, pk):
         top_amount = 0
         bottom_amount = 0
         bag_amount = 0
-        if reservation.shoes != None and days < 21:
-            shoes_amount= 10+2*(days-1)
+        if reservation.shoes != None and days < 5:
+            shoes_amount= 10+3*(days-1)
         elif reservation.shoes == None:
             shoes_amount=0
         else:
-            shoes_amount= 50
-        if reservation.top != None and days<13:
+            shoes_amount= 20
+        if reservation.top != None and days<5:
             top_amount= 5+2*(days-1)
         elif reservation.top == None:
             top_amount=0
         else:
-            top_amount= 30
-        if reservation.bottom != None and days<13:
+            top_amount= 10
+        if reservation.bottom != None and days<5:
             bottom_amount= 5+2*(days-1)
         elif reservation.bottom == None:
             bottom_amount=0
         else:
-            bottom_amount= 30
-        if reservation.bag != None and days<18:
+            bottom_amount= 10
+        if reservation.bag != None and days<5:
             bag_amount= 3+1*(days-1)
         elif reservation.bag == None:
             bag_amount=0
         else:
-            bag_amount= 20
+            bag_amount= 5
         return render(request, "admin/edit.html", {"form": form, "days":days, "shoes_amount":shoes_amount, "top_amount":top_amount, "bottom_amount":bottom_amount, "bag_amount":bag_amount, "item_amount":shoes_amount+top_amount+bottom_amount+bag_amount})
     
 def delreserv(request, pk):

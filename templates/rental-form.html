@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-  {% include "modal/size.html" %}
+  {% include "modal/modals.html" %}
 
   <!-- preloader 2 -->
   <div class="hidden mask">
@@ -43,7 +43,7 @@
                 <h3>
                   <strong>1</strong>Personal Details
                 </h3>
-                <p>Subtitle or short description can be set here.</p>
+                <p></p>
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
@@ -152,6 +152,19 @@
                   </select>
                 </div>
               </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="checkbox" id="cbx-delivery" class="inp-cbx" style="display:none;" name="delivery"/>
+                  <label class="cbx terms" for="cbx-delivery" style="width:auto;">
+                    <span>
+                      <svg width="12px" height="10px" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                      </svg>
+                    </span>
+                    <span>I want to recieve items by delivery.</span>
+                  </label>
+                </div>
+              </div>
             </div>
             <!-- Rental Items End -->
             <!-- Date & Time -->
@@ -189,15 +202,15 @@
             </div>
             <!-- Date & Time End -->
 
-            <!-- Rental Items -->
+            <!-- Guest Run -->
             <div class="row box first">
               <div class="box-header">
                 <h3>
                   <strong>4</strong>Guest Run Ticket
                 </h3>
-                <p>If you want attend guest run event, please go to 'GUEST RUN' page.</p>
+                <p>If you want attend guest run event, please select 'Guest Run' below.</p>
               </div>
-              <div class="col-lg-6 col-md-12">
+              <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                   <label for="id_event" class="label-title">Guest Run</label>
                   <select name="event" class="wide" id="id_event">
@@ -208,7 +221,19 @@
                   </select>
                 </div>
               </div>
-
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_event_date" class="label-title">
+                    Date Attended</label>
+                  <input type="date" name="event_date" class="form-control-date" required="" id="id_event_date">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="id_event_time" class="label-title">Time Attended</label>
+                  <input type="time" name="event_time" value="00:00" class="form-control-time" id="id_event_time">
+                </div>
+              </div>
             </div>
             <!-- Rental Items End -->
 
@@ -222,7 +247,6 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="inputMessage" class="label-title">Note</label>
                   <textarea id="inputMessage" class="form-control" name="message" placeholder="Enter Message" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
                 </div>
               </div>
@@ -245,7 +269,10 @@
                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                       </svg>
                     </span>
-                    <span>Accept<a href="pdf/terms.pdf" class="terms-link" target="_blank">Terms and Conditions</a>.</span>
+                    <span>Accept</span>
+                    <span type="button" data-bs-toggle="modal" data-bs-target="#tacs" style="color:blue; text-decoration:underline;">
+                      Terms and Conditions
+                    </span>
                   </label>
                 </div>
               </div>

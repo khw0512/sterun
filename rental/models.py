@@ -66,6 +66,8 @@ class Reservation(models.Model):
         blank=True,
         null=True,
     )
+    event_date = models.DateField()
+    event_time = models.TimeField(blank=True, default=timezone.now)
     image = models.ImageField(upload_to="reservation", blank=True)
     message = models.TextField(blank=True)
     status = models.CharField(

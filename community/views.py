@@ -19,8 +19,17 @@ def index(request):
 def about_us(request):
     return render(request,"about.html")
 
+def cookie_policy(request):
+    return render(request,"modal/cookie_policy.html")
+
+def privacy_policy(request):
+    return render(request,"modal/privacy_policy.html")
+
+def terms_of_services(request):
+    return render(request,"modal/terms_of_services.html")
+
 def events(request):
-    events = GuestRun.objects.filter(completed=False).order_by("status","start_date")
+    events = GuestRun.objects.filter(completed=False).exclude(status="ST1").order_by("status","start_date")
     lenofevents = len(events)
     page = int(request.GET.get('p', 1)) #없으면 1로 지정
     paginator = Paginator(events, 5) #한 페이지 당 몇개 씩 보여줄 지 지정 
@@ -47,6 +56,11 @@ def data(request):
     reservation = Reservation.objects.all().order_by("status")
     context = {"reservation": reservation}
     return render(request, "admin/data.html", context)
+
+def event_table(request):
+    event = GuestRun.objects.all().order_by("status")
+    context = {"events": event}
+    return render(request, "admin/event-table.html", context)
 
 def mypage(request, pk):
     reservation = Reservation.objects.all()

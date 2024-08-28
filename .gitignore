@@ -1,12 +1,10 @@
 db.splite3
 __pycache__
-/mediafiles
-/staticfiles
 .idea
 .vscode
 venv
 .venvls
-/media/avatar
-/media/reservation
-/media/runMain
-/media/runRoute
+media/avatar
+media/reservation
+media/runMain
+media/runRoute

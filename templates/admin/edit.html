@@ -15,13 +15,10 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
     <style>
-      body > div.tocenter > div > form > p:nth-child(15) > label,
-      body > div.tocenter > div > form > p:nth-child(17) > label,
-      body > div.tocenter > div > form > p:nth-child(18) > label,
-      body > div.tocenter > div > form > p:nth-child(19) > label,
+      body > div.tocenter > div > form > p:nth-child(16) > label,
       body > div.tocenter > div > form > p:nth-child(20) > label,
-      body > div.tocenter > div > form > p:nth-child(21) > label,
-      body > div.tocenter > div > form > p:nth-child(22) > label{
+      body > div.tocenter > div > form > p:nth-child(23) > label,
+      body > div.tocenter > div > form > p:nth-child(24) > label {
         color: red;
         font-weight: bold;
       }
@@ -43,16 +40,26 @@
           <p style="color:blue; font-size:1.2rem; font-weight:bold; padding-bottom:20px;">렌탈기간 :
             {{days}}
             일</p>
-            <span>shoes: {{shoes_amount}} | top: {{top_amount}} | bottom: {{bottom_amount}} | bag: {{bag_amount}} | Item Total: {{item_amount}}</span>
+          <span style="color:blue;">shoes:
+            {{shoes_amount}}
+            | top:
+            {{top_amount}}
+            | bottom:
+            {{bottom_amount}}
+            | bag:
+            {{bag_amount}}
+            | Item Total:
+            {{item_amount}}</span>
+          <div style="height:30px;"></div>
           {{ form.as_p }}
-          <button style="margin-top:20px; padding: 5px;" type="submit">
+          <button style="font-size: 1.3rem; margin-top:20px; padding: 5px; background-color:#7695FF;" type="submit">
             저장
           </button>
         </form>
         <div style="height:20px;"></div>
         <div>
           <a href="{% url "community:data" %}">
-            <button style="padding:5px; margin-bottom:30px;">뒤로 가기</button>
+            <button style="font-size: 1.3rem; padding:5px; margin-bottom:30px; background-color:#9DBDFF;">뒤로 가기</button>
           </a>
         </div>
       </div>

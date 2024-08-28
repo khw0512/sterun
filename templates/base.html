@@ -275,13 +275,13 @@
             <div class="col-md-6 col-sm-12">
               <ul class="link-footer-bottom">
                 <li>
-                  <a href="#">Terms Of Services</a>
+                  <a href="{% url "community:terms_of_services" %}" target="_blank">Terms Of Services</a>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="{% url "community:privacy_policy" %}" target="_blank">Privacy Policy</a>
                 </li>
                 <li>
-                  <a href="#">Cookie Policy</a>
+                  <a href="{% url "community:cookie_policy" %}" target="_blank">Cookie Policy</a>
                 </li>
                 <li>
                   <div style="width: 30px;"></div>
@@ -317,7 +317,6 @@
     <script type="text/javascript" src="{% static 'js/jquery-waypoints.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery-countTo.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
       var logo2url = "{% static 'img/logo2@.png' %}";
       var logov2url = "{% static 'img/logo-v2@.png' %}";
