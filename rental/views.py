@@ -43,6 +43,14 @@ def rental_register(request):
             event_data = GuestRun.objects.get(pk=request.POST.get("event"))
         else:
             event_data = None
+        if request.POST.get("event_date") != "":
+            event_date = request.POST.get("event_date")
+        else:
+            event_date = None
+        if request.POST.get("event_time") != "":
+            event_time = request.POST.get("event_time")
+        else:
+            event_time = None
 
         username = request.POST.get("username")
         id = username + datetime.now().strftime("T%H%M%S")
@@ -67,8 +75,8 @@ def rental_register(request):
             end_date=request.POST.get("end_date"),
             end_time=request.POST.get("end_time"),
             event=event_data,
-            event_date = request.POST.get("event_date"),
-            event_time = request.POST.get("event_time"),
+            event_date = event_date,
+            event_time = event_time,
             message=request.POST.get("message"),
         )
 

@@ -51,7 +51,22 @@ def event_register(request, pk):
             event_data = GuestRun.objects.get(pk=request.POST.get("event"))
         else:
             event_data = None
-
+        if request.POST.get("start_date") != "":
+            start_date = request.POST.get("start_date")
+        else:
+            start_date = None
+        if request.POST.get("end_date") != "":
+            end_date = request.POST.get("end_date")
+        else:
+            end_date = None
+        if request.POST.get("event_date") != "":
+            event_date = request.POST.get("event_date")
+        else:
+            event_date = None
+        if request.POST.get("delivery") == 'on':
+            delivery = True
+        else:
+            delivery = False
         username = request.POST.get("username")
         id = username + datetime.now().strftime("T%H%M%S")
         email = request.POST.get("email")
@@ -61,9 +76,9 @@ def event_register(request, pk):
             username=username,
             email=email,
             message=request.POST.get("message"),
-            start_date=request.POST.get("start_date"),
+            start_date=start_date,
             start_time=request.POST.get("start_time"),
-            end_date=request.POST.get("end_date"),
+            end_date=end_date,
             end_time=request.POST.get("end_time"),
             top=top,
             bottom=bottom,
@@ -71,6 +86,9 @@ def event_register(request, pk):
             bag=bag,
             address=request.POST.get("address"),
             event=event_data,
+            event_date = event_date,
+            event_time = request.POST.get("event_time"),
+            delivery = delivery
         )
 
         reservation.save()

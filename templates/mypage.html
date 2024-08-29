@@ -49,12 +49,14 @@
                       <div style="border-top:solid 1px rgba(0, 0, 0, 0.05); padding-bottom: 20px;"></div>
                       <div class="d-flex flex-wrap justify-content-start ">
                         <h5 class="d-flex">Item Rental List</h5>
-                        <div class="d-flex" style="width:20px; height: 1px;"></div>
-                        <p class=" d-flex">
-                          - Rental Period :
-                          {{data.start_date}}
-                          ~
-                          {{data.end_date}}</p>
+                        {% if data.start_date != None and date.end_date != None %}
+                          <div class="d-flex" style="width:20px; height: 1px;"></div>
+                          <p class=" d-flex">
+                            - Rental Period :
+                            {{data.start_date}}
+                            ~
+                            {{data.end_date}}</p>
+                        {% endif %}
                       </div>
                       {% if data.shoes or data.top or data.bottom or data.bag %}
                         <div class="table-responsive">
