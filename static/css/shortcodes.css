@@ -216,8 +216,8 @@ p.post {
 }
 
 .size-info-button {
-	width: 70px; 
 	height: 20px; 
+	padding:0 10px 0 10px;
 	font-size:13px; 
 	background-color: var(--surface);
 	border-radius: 10px;

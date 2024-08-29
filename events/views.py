@@ -27,7 +27,11 @@ def event_write(request):
 
 def event_register(request, pk):
     event= GuestRun.objects.filter(event_id=pk)
-    events = {"events":event}
+    shoes = Item.objects.filter(category='shoes')
+    bag = Item.objects.filter(category='bag')
+    top = Item.objects.filter(category='top')
+    bottom = Item.objects.filter(category='bottom')
+    context = {"events":event, "shoeses":shoes, "bags":bag, "tops":top, "bottoms":bottom}
     if request.method == "POST":
         if Item.objects.filter(pk=request.POST.get("top")).exists():
             top = Item.objects.get(pk=request.POST.get("top"))
@@ -68,7 +72,7 @@ def event_register(request, pk):
         else:
             delivery = False
         username = request.POST.get("username")
-        id = username + datetime.now().strftime("T%H%M%S")
+        id = username +"_run_"+datetime.now().strftime("T%H%M%S")
         email = request.POST.get("email")
 
         reservation = Reservation(
@@ -128,7 +132,7 @@ def event_register(request, pk):
 
         return redirect("community:mypage", id)
     else:
-        return render(request, "run-form.html", events)
+        return render(request, "run-form.html", context)
     
 def update_event(request, pk):
     event = get_object_or_404(GuestRun, pk=pk)

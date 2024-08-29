@@ -644,7 +644,7 @@ label.cbx {
 	font-size: 14px;
 	font-weight: 500;
 }
-
+/*
 .cbx span:first-child {
 	position: relative;
 	width: 18px;
@@ -655,7 +655,7 @@ label.cbx {
 	transition: all 0.2s ease;
 	margin-right: 10px;
 }
-
+*/
 .cbx span:first-child svg {
 	position: absolute;
 	top: 3px;
@@ -689,12 +689,6 @@ label.cbx {
 
 .inp-cbx {
 	display: none;
-}
-
-.inp-cbx:checked+.cbx span:first-child {
-	background: var(--success);
-	border-color: var(--success);
-	animation: wave 0.4s ease;
 }
 
 .inp-cbx:checked+.cbx span:first-child svg {

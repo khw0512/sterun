@@ -48,7 +48,7 @@
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
                   <label for="username" class="label-title forced">Name</label>
-                  <input id="username" class="form-control" name="username" placeholder="Enter Full Name" type="text" oninvalid="this.setCustomValidity('Please Enter Your Name!!')" required="required"/>
+                  <input id="username" class="form-control" name="username" placeholder="Enter Full Name" type="text" required="required"/>
                 </div>
               </div>
               <div class="col-lg-6 col-md-12">
@@ -80,7 +80,7 @@
                     <label for="id_shoes" class="label-title">Running Shoes</label>
                     <!-- Button trigger modal -->
                     <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#ShoesSizeModal">
-                      size info
+                      size
                     </button>
                   </div>
                   <select name="shoes" class="wide" id="id_shoes">
@@ -108,7 +108,7 @@
                     <label for="id_top" class="label-title">Top</label>
                     <!-- Button trigger modal -->
                     <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#TopSizeModal">
-                      size info
+                      size
                     </button>
                   </div>
                   <select name="top" class="wide" id="id_top">
@@ -133,7 +133,7 @@
                     <label for="id_bottom" class="label-title">Bottom</label>
                     <!-- Button trigger modal -->
                     <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#BottomSizeModal">
-                      size info
+                      size
                     </button>
                   </div>
                   <select name="bottom" class="wide" id="id_bottom">
@@ -154,14 +154,14 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <input type="checkbox" id="cbx-delivery" class="inp-cbx" style="display:none;" name="delivery"/>
+                  <input type="checkbox" id="cbx-delivery" class="inp-cbx" name="delivery"/>
                   <label class="cbx terms" for="cbx-delivery" style="width:auto;">
                     <span>
                       <svg width="12px" height="10px" viewbox="0 0 12 10">
                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                       </svg>
                     </span>
-                    <span>I want to recieve items by delivery.</span>
+                    <span style="margin-top:-5px;">I want to recieve items by delivery.</span>
                   </label>
                 </div>
               </div>
@@ -184,7 +184,7 @@
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
                   <label for="id_start_time" class="label-title forced">Start Time</label>
-                  <input type="time" name="start_time" value="00:00" class="form-control-time" id="id_start_time">
+                  <input type="time" name="start_time" class="form-control-time" id="id_start_time">
                 </div>
               </div>
               <div class="col-lg-6 col-md-12">
@@ -196,7 +196,7 @@
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
                   <label for="id_end_time" class="label-title forced">End Time</label>
-                  <input type="time" name="end_time" value="00:00" class="form-control-time" id="id_end_time">
+                  <input type="time" name="end_time" class="form-control-time" id="id_end_time">
                 </div>
               </div>
             </div>
@@ -262,15 +262,15 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <input type="checkbox" id="cbx" class="inp-cbx" style="display:none;" name="terms" value="yes" required="required"/>
+                  <input type="checkbox" id="cbx" class="inp-cbx" name="terms" value="yes" required="required"/>
                   <label class="cbx terms" for="cbx" style="width:auto;">
                     <span>
                       <svg width="12px" height="10px" viewbox="0 0 12 10">
                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                       </svg>
                     </span>
-                    <span>Accept</span>
-                    <span type="button" data-bs-toggle="modal" data-bs-target="#tacs" style="color:blue; text-decoration:underline;">
+                    <span style="margin-top:-5px;">Accept</span>
+                    <span type="button" data-bs-toggle="modal" data-bs-target="#tacs" style="color:blue; text-decoration:underline; margin-top:-5px;">
                       Terms and Conditions
                     </span>
                   </label>

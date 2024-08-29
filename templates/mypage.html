@@ -63,25 +63,25 @@
                           <table class="table table-borderless">
                             <thead>
                               <tr>
-                                <th scope="col">Check</th>
-                                <th scope="col">Item</th>
-                                <th scope="col">Size</th>
-                                <th scope="col" class="text-right">Item Info</th>
+                                <th scope="col" style="font-weight:bold;">Check</th>
+                                <th scope="col" style="font-weight:bold;">Item</th>
+                                <th scope="col" style="font-weight:bold;">Size</th>
+                                <th scope="col" class="text-right" style="font-weight:bold;">Info</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
                                 {% if data.shoes != None %}
                                   <th scope="row">&#x2705</th>
-                                  <td><img src="{% static "img/icon/shoe.svg" %}" class="img-fluid" width="35" alt="shoes">
+                                  <td><img src="{% static "img/icon/shoe.svg" %}" class="img-fluid" width="25" alt="shoes">
                                     {{ data.shoes.name }}</td>
-                                  <td>{{ data.shoes.size }}</td>
+                                  <td>{{ data.shoes.size }}mm</td>
                                   <td class="text-right">
                                     <a target="_blank" href="{{ data.shoes.link }}">link</a>
                                   </td>
                                 {% else %}
                                   <th scope="row">&#x25FB</th>
-                                  <td><img src="{% static "img/icon/shoe.svg" %}" class="img-fluid" width="35" alt="shoes">
+                                  <td><img src="{% static "img/icon/shoe.svg" %}" class="img-fluid" width="25" alt="shoes">
                                     -</td>
                                   <td>-</td>
                                   <td class="text-right">
@@ -92,7 +92,7 @@
                               <tr>
                                 {% if data.bag != None %}
                                   <th scope="row">&#x2705</th>
-                                  <td><img src="{% static "img/icon/belt_pouch.svg" %}" class="img-fluid" width="35" alt="pouch">
+                                  <td><img src="{% static "img/icon/belt_pouch.svg" %}" class="img-fluid" width="25" alt="pouch">
                                     {{ data.bag.name }}</td>
                                   <td>{{ data.bag.size }}</td>
                                   <td class="text-right">
@@ -100,18 +100,18 @@
                                   </td>
                                 {% else %}
                                   <th scope="row">&#x25FB</th>
-                                  <td><img src="{% static "img/icon/belt_pouch.svg" %}" class="img-fluid" width="35" alt="pouch">
+                                  <td><img src="{% static "img/icon/belt_pouch.svg" %}" class="img-fluid" width="25" alt="pouch">
                                     -</td>
                                   <td>-</td>
                                   <td class="text-right">
-                                    <a href="#">-</a>
+                                    <p>-</p>
                                   </td>
                                 {% endif %}
                               </tr>
                               <tr>
                                 {% if data.top != None %}
                                   <th scope="row">&#x2705</th>
-                                  <td><img src="{% static "img/icon/tshirt.svg" %}" class="img-fluid" width="35" alt="top">
+                                  <td><img src="{% static "img/icon/tshirt.svg" %}" class="img-fluid" width="25" alt="top">
                                     {{ data.top.name }}</td>
                                   <td>{{ data.top.size }}</td>
                                   <td class="text-right">
@@ -119,18 +119,18 @@
                                   </td>
                                 {% else %}
                                   <th scope="row">&#x25FB</th>
-                                  <td><img src="{% static "img/icon/tshirt.svg" %}" class="img-fluid" width="35" alt="top">
+                                  <td><img src="{% static "img/icon/tshirt.svg" %}" class="img-fluid" width="25" alt="top">
                                     -</td>
                                   <td>-</td>
                                   <td class="text-right">
-                                    <a href="#">-</a>
+                                    <p>-</p>
                                   </td>
                                 {% endif %}
                               </tr>
                               <tr>
                                 {% if data.bottom != None %}
                                   <th scope="row">&#x2705</th>
-                                  <td><img src="{% static "img/icon/shorts.svg" %}" class="img-fluid" width="35" alt="bottom">
+                                  <td><img src="{% static "img/icon/shorts.svg" %}" class="img-fluid" width="25" alt="bottom">
                                     {{ data.bottom.name }}</td>
                                   <td>{{ data.bottom.size }}</td>
                                   <td class="text-right">
@@ -138,11 +138,30 @@
                                   </td>
                                 {% else %}
                                   <th scope="row">&#x25FB</th>
-                                  <td><img src="{% static "img/icon/shorts.svg" %}" class="img-fluid" width="35" alt="bottom">
+                                  <td><img src="{% static "img/icon/shorts.svg" %}" class="img-fluid" width="25" alt="bottom">
                                     -</td>
                                   <td>-</td>
                                   <td class="text-right">
-                                    <a href="#">-</a>
+                                    <p>-</p>
+                                  </td>
+                                {% endif %}
+                              </tr>
+                              <tr>
+                                {% if data.delivery != None %}
+                                  <th scope="row">&#x2705</th>
+                                  <td><img src="{% static "img/icon/motorcycle.png" %}" class="img-fluid" width="25" alt="shoes">
+                                    Delivery Service</td>
+                                  <td>-</td>
+                                  <td class="text-right">
+                                    -
+                                  </td>
+                                {% else %}
+                                  <th scope="row">&#x25FB</th>
+                                  <td><img src="{% static "img/icon/motorcycle.png" %}" class="img-fluid" width="25" alt="shoes">
+                                    -</td>
+                                  <td>-</td>
+                                  <td class="text-right">
+                                    <p>-</p>
                                   </td>
                                 {% endif %}
                               </tr>
@@ -225,16 +244,6 @@
                     {% if status == "ST2" %}
                       <div class="cart-footer">
                         <div class="row">
-                          <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
-                            <div class="order-note">
-                              <form>
-                                <div class="form-group">
-                                  <label for="specialNotes">Special Note for this order:</label>
-                                  <textarea class="form-control" name="specialNotes" id="specialNotes" rows="10" placeholder="Message here" style="height:100px;"></textarea>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
                           <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
                             <div class="order-total table-responsive ">
                               <table class="table table-borderless text-right">

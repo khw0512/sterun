@@ -12,7 +12,7 @@
 
   <!-- preloader 2 -->
   <div class="hidden mask">
-    <img class="hedden loadingImg" src='https://i.ibb.co/20zw80q/1487.gif'>
+    <img class="hedden loadingImg" src='img/spin-loading100.gif'>
   </div>
   <!-- preloader 2 -->
 
@@ -92,14 +92,14 @@
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="id_event_date" class="label-title">
+                  <label for="id_event_date" class="label-title forced">
                     Date Attended</label>
                   <input type="date" name="event_date" class="form-control-date" required="" id="id_event_date">
                 </div>
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="id_event_time" class="label-title">Time Attended</label>
+                  <label for="id_event_time" class="label-title forced">Time Attended</label>
                   <input type="time" name="event_time" value="00:00" class="form-control-time" id="id_event_time">
                 </div>
               </div>
@@ -121,7 +121,7 @@
                     <label for="id_shoes" class="label-title">Running Shoes</label>
                     <!-- Button trigger modal -->
                     <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#ShoesSizeModal">
-                      size info
+                      size
                     </button>
                   </div>
                   <select name="shoes" class="wide" id="id_shoes">
@@ -149,7 +149,7 @@
                     <label for="id_top" class="label-title">Top</label>
                     <!-- Button trigger modal -->
                     <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#TopSizeModal">
-                      size info
+                      size
                     </button>
                   </div>
                   <select name="top" class="wide" id="id_top">
@@ -174,7 +174,7 @@
                     <label for="id_bottom" class="label-title">Bottom</label>
                     <!-- Button trigger modal -->
                     <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#BottomSizeModal">
-                      size info
+                      size
                     </button>
                   </div>
                   <select name="bottom" class="wide" id="id_bottom">
@@ -195,14 +195,14 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <input type="checkbox" id="cbx-delivery" class="inp-cbx" style="display:none;" name="delivery"/>
+                  <input type="checkbox" id="cbx-delivery" class="inp-cbx" name="delivery"/>
                   <label class="cbx terms" for="cbx-delivery" style="width:auto;">
                     <span>
                       <svg width="12px" height="10px" viewbox="0 0 12 10">
                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                       </svg>
                     </span>
-                    <span>I want to recieve items by delivery.</span>
+                    <span style="margin-top:-5px;">I want to recieve items by delivery.</span>
                   </label>
                 </div>
               </div>
@@ -215,7 +215,7 @@
                 <h3>
                   <strong>4</strong>Period for Rental
                 </h3>
-                <p>Subtitle or short description can be set here.</p>
+                <p>If you want to rental items, please enter below.</p>
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
@@ -250,7 +250,7 @@
                 <h3>
                   <strong>5</strong>Message
                 </h3>
-                <p>Subtitle or short description can be set here.</p>
+                <p>If you have something to ask, please tell me.</p>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
@@ -269,15 +269,10 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <input type="checkbox" id="cbx" class="inp-cbx" style="display:none;" name="terms" value="yes" required="required"/>
+                  <input type="checkbox" id="cbx" class="inp-cbx" name="terms" value="yes" required="required"/>
                   <label class="cbx terms" for="cbx" style="width:auto;">
-                    <span>
-                      <svg width="12px" height="10px" viewbox="0 0 12 10">
-                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                      </svg>
-                    </span>
-                    <span>Accept</span>
-                    <span type="button" data-bs-toggle="modal" data-bs-target="#tacs" style="color:blue; text-decoration:underline;">
+                    <span style="margin-top:-5px;">Accept</span>
+                    <span type="button" data-bs-toggle="modal" data-bs-target="#tacs" style="color:blue; text-decoration:underline; margin-top:-5px;">
                       Terms and Conditions
                     </span>
                   </label>

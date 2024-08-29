@@ -53,7 +53,7 @@ def rental_register(request):
             event_time = None
 
         username = request.POST.get("username")
-        id = username + datetime.now().strftime("T%H%M%S")
+        id = username+"_item_" + datetime.now().strftime("T%H%M%S")
         email = request.POST.get("email")
         if request.POST.get("delivery") == 'on':
             delivery = True
