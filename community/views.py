@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.contrib import messages
+import math
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
 from django.conf import settings
@@ -34,7 +34,9 @@ def events(request):
     page = int(request.GET.get('p', 1)) #없으면 1로 지정
     paginator = Paginator(events, 5) #한 페이지 당 몇개 씩 보여줄 지 지정 
     events = paginator.get_page(page)
-    context = {"events": events,"len":lenofevents}
+    page_list = list(range(1,(lenofevents//5)+2))
+    print(page_list)
+    context = {"events": events,"len":lenofevents,"page_list":page_list}
     return render(request,"event.html", context)
 
 def event_detail(request, pk):

@@ -23,7 +23,6 @@ def event_write(request):
     else:
         form = WriteForm()
         return render(request, "admin/event_write.html", {"form": form})
-    
 
 def event_register(request, pk):
     event= GuestRun.objects.filter(event_id=pk)

@@ -17,13 +17,13 @@ class GuestRun(models.Model):
     ]
 
     LEVEL = [
-        ("Level-1, 800","800"),
-        ("Level-2, 730","730"),
-        ("Level-3, 700","700"),
-        ("Level-4, 630","630"),
-        ("Level-5, 600","600"),
-        ("Level-6, 530","530"),
-        ("Full Access","Free"),
+        ("800","Level-1, 800"),
+        ("730","Level-2, 730"),
+        ("700","Level-3, 700"),
+        ("630","Level-4, 630"),
+        ("600","Level-5, 600"),
+        ("530","Level-6, 530"),
+        ("Free","Full Access"),
     ]
 
     event_id = models.AutoField(
@@ -50,7 +50,7 @@ class GuestRun(models.Model):
     )
     amount = models.IntegerField(default=0)
     route = models.CharField(max_length=50, blank=False)
-    desc = models.TextField(blank=True, default="-")
+    desc = models.TextField(blank=True)
     completed = models.BooleanField(default=False)
 
     def __str__(self):

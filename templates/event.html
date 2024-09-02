@@ -32,13 +32,13 @@
                 <div class="salary-type col-auto order-sm-3">
                   <span class="salary-range">${{event.amount}}</span>
                   {% if event.status == "ST1" %}
-                    <span class="badge bg-warning">Checking</span>
+                    <span class="badge bg-warning">{{event.get_status_display}}</span>
                   {% elif event.status == "ST2" %}
-                    <span class="badge bg-success">On Sale</span>
+                    <span class="badge bg-success">{{event.get_status_display}}</span>
                   {% elif event.status == "ST3" %}
-                    <span class="badge bg-info">Sold Out</span>
+                    <span class="badge bg-info">{{event.get_status_display}}</span>
                   {% elif event.status == "ST4" %}
-                    <span class="badge bg-secondary">Closed</span>
+                    <span class="badge bg-secondary">{{event.get_status_display}}</span>
                   {% endif %}
 
                 </div>
@@ -81,8 +81,7 @@
                         <rect width="18" height="18" fill="white" fill-opacity="0.01"></rect>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M24 44C32.2843 44 39 37.2843 39 29C39 15 24 4 24 4C24 4 9 15 9 29C9 37.2843 15.7157 44 24 44Z" stroke="grey" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
                         <path d="M9 29C9 37.2843 15.7157 44 24 44C32.2843 44 39 37.2843 39 29C39 29 30 32 24 29C18 26 9 29 9 29Z" fill="grey" stroke="grey" stroke-width="4" stroke-linejoin="round"></path>
-                      </svg>
-                      {{event.level}}
+                      </svg>{{event.get_level_display}}
                     </li>
                   </ul>
                 </div>
@@ -104,8 +103,15 @@
                 <a class="page-link" href="#">Previous</a>
               </li>
             {% endif %}
-            <li class="page-item" style="min-width:70px; text-align:center;">
-              <a class="page-link" style="color:green;" href="#">{{events.number}}/{{events.paginator.num_pages}}</a>
+            <li class="page-item" style="min-width:70px; text-align:center; padding-top:9px;">
+              {% for num in page_list %}
+                {% if events.number == num %}
+                  <span style="color:grey; padding:5px;">{{num}}</span>
+                {% else %}
+                  <a href="?p={{num}}" style="color:#1973E8; padding:5px;">{{num}}</a>
+                {% endif %}
+
+              {% endfor %}
             </li>
             {% if events.has_next %}
               <li class="page-item" style="min-width:100px; text-align:center;">

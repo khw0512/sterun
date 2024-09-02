@@ -266,9 +266,9 @@
 <!-- Team-member -->
 
 <!-- Widget form conatct-->
-<div class="tf-widget-form-contact">
+<div class="tf-widget-form-contact" style="">
   <div class="themeflat-container">
-    <div class="tf-form-contact">
+    <div class="tf-form-contact" style="padding-top:0px !important;">
       <div class="row">
         <div class="col-md-6 pd-form">
           <img style="height:100%; width:100%; object-fit:cover; object-position:left;" src="{% static "img/background/contact-2.jpg" %}" alt="">
@@ -281,9 +281,19 @@
             <div class="list-contact">
               <div class="contact">
                 <span>
-                  Phone:
+                  DM:
                 </span>
-                <p class="address">(555) 123-4567</p>
+                <p class="address">
+                  <a href="https://www.instagram.com/sterun.kr/" target="_blank" style="color:white;">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <span>
+                    &nbsp;
+                  </span>
+                  <a href="https://www.x.com/joollab" target="_blank" style="color:white;">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                </p>
               </div>
               <div class="contact">
                 <span>
@@ -292,28 +302,7 @@
                 <p class="address">sterun@joollab.com</p>
               </div>
             </div>
-            <ul class="social-media">
-              <li>
-                <a href="twitter.com">
-                  <i class="fa-brands fa-x-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="dribbble.com">
-                  <i class="icon-youtube"></i>
-                </a>
-              </li>
-              <li>
-                <a href="behance.com">
-                  <i class="icon-instagram"></i>
-                </a>
-              </li>
-              <li>
-                <a href="pinterest">
-                  <i class="fa-brands fa-spotify"></i>
-                </a>
-              </li>
-            </ul>
+
             <div class="form-register">
               <form action="{% url "community:inquiry" %}" method="post" id="registerform" class="register-form" novalidate="">
                 {% csrf_token %}
@@ -335,7 +324,7 @@
                   <input type="text" id="shortq" placeholder="Short Qeustion*" class="tb-my-input" name="shortq" value="" size="32" aria-required="true">
                 </fieldset>
                 <p class="form-submit">
-                  <input name="submit" type="submit" id="comment-reply" class="submit-register" value="Submit">
+                  <input name="submit" type="submit" id="contact-send-button" class="submit-register" value="Send Message">
                 </p>
               </form>
             </div>

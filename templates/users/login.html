@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
   <div class="container col-lg-4" style="padding:30px 0 30px 0">
     <div class="tfre_login-form">
@@ -26,7 +27,7 @@
     </div>
     <div class="container tfre_register" id="tfre_register_redirect">
       <p>Don't you have an account?
-        <a href="#" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Register.</a>
+        <a href="{% url "users:signup" %}" style="color:#1973E8;">Register.</a>
       </p>
     </div>
   </div>
