@@ -3907,12 +3907,12 @@ a.mapboxgl-ctrl-logo {
 #guest-run-sec,
 #period-sec{
 	visibility: hidden;
-	position: absolute;
+	height: 0;
 	opacity: 0;
 }
 
-.show {
-	position: static !important;
+.show-sec {
+	height: 100% !important;
 	opacity: 1 !important;
 	visibility: visible !important;
 	transition-duration: 0.5s;

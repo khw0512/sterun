@@ -485,13 +485,13 @@
   $(function(){
       $("#guestrun-check").click(function() {
           if ($("input[name=guestrun]").is(":checked")) {
-              $("#guest-run-sec").addClass("show");
-              $("#period-sec").addClass("show");
+              $("#guest-run-sec").addClass("show-sec");
+              $("#period-sec").addClass("show-sec");
               $("#message-title").text("5");
               $("#submit-title").text("6");
           } else {
-              $("#guest-run-sec").removeClass("show");
-              $("#period-sec").removeClass("show");
+              $("#guest-run-sec").removeClass("show-sec");
+              $("#period-sec").removeClass("show-sec");
               $("#message-title").text("4");
               $("#submit-title").text("5");
           }
