@@ -115,130 +115,145 @@
                 </h3>
                 <p>Select size of items you want to rent.</p>
               </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <div class="d-flex justify-content-between">
-                    <label for="id_shoes" class="label-title">Running Shoes</label>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#ShoesSizeModal">
-                      size
-                    </button>
+              <div class="d-flex toggleCheck">
+                <input type="checkbox" id="guestrun-check" class="inp-cbx" name="guestrun"/>
+                <div style="width:10px;"></div>
+                <label for="guestrun-check">
+                  <span>I want to rent running items.</span>
+                </label>
+              </div>
+              <div id="guest-run-sec">
+                <div class="row">
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <div class="d-flex justify-content-between">
+                        <label for="id_shoes" class="label-title">Running Shoes</label>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#ShoesSizeModal">
+                          size
+                        </button>
+                      </div>
+                      <select name="shoes" class="wide" id="id_shoes">
+                        <option value="" selected="">---------</option>
+                        {% for shoes in shoeses %}
+                          <option value="{{shoes.pk}}">{{shoes.name}}-{{shoes.size}}mm</option>
+                        {% endfor %}
+                      </select>
+                    </div>
                   </div>
-                  <select name="shoes" class="wide" id="id_shoes">
-                    <option value="" selected="">---------</option>
-                    {% for shoes in shoeses %}
-                      <option value="{{shoes.pk}}">{{shoes.name}}-{{shoes.size}}mm</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <label for="id_bag" class="label-title">Phone Pouch</label>
-                  <select name="bag" class="wide" id="id_bag">
-                    <option value="" selected="">---------</option>
-                    {% for bag in bags %}
-                      <option value="{{bag.pk}}">{{bag.name}}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <div class="d-flex justify-content-between">
-                    <label for="id_top" class="label-title">Top</label>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#TopSizeModal">
-                      size
-                    </button>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <label for="id_bag" class="label-title">Phone Pouch</label>
+                      <select name="bag" class="wide" id="id_bag">
+                        <option value="" selected="">---------</option>
+                        {% for bag in bags %}
+                          <option value="{{bag.pk}}">{{bag.name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
                   </div>
-                  <select name="top" class="wide" id="id_top">
-                    <option value="" selected="">---------</option>
-                    {% for top in tops %}
-                      {% if top.gender == "M" %}
-                        <option value="{{top.pk}}">Man
-                          {{top.size}}
-                          {{top.name}}</option>
-                      {% else %}
-                        <option value="{{top.pk}}">Woman
-                          {{top.size}}
-                          {{top.name}}</option>
-                      {% endif %}
-                    {% endfor %}
-                  </select>
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <div class="d-flex justify-content-between">
-                    <label for="id_bottom" class="label-title">Bottom</label>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#BottomSizeModal">
-                      size
-                    </button>
+                <div class="row">
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <div class="d-flex justify-content-between">
+                        <label for="id_top" class="label-title">Top</label>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#TopSizeModal">
+                          size
+                        </button>
+                      </div>
+                      <select name="top" class="wide" id="id_top">
+                        <option value="" selected="">---------</option>
+                        {% for top in tops %}
+                          {% if top.gender == "M" %}
+                            <option value="{{top.pk}}">Man
+                              {{top.size}}
+                              {{top.name}}</option>
+                          {% else %}
+                            <option value="{{top.pk}}">Woman
+                              {{top.size}}
+                              {{top.name}}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                    </div>
                   </div>
-                  <select name="bottom" class="wide" id="id_bottom">
-                    <option value="" selected="">---------</option>
-                    {% for bottom in bottoms %}
-                      {% if bottom.gender == "M" %}
-                        <option value="{{bottom.pk}}">Man
-                          {{bottom.size}}
-                          {{bottom.name}}</option>
-                      {% else %}
-                        <option value="{{bottom.pk}}">Woman
-                          {{bottom.size}}
-                          {{bottom.name}}</option>
-                      {% endif %}
-                    {% endfor %}
-                  </select>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <div class="d-flex justify-content-between">
+                        <label for="id_bottom" class="label-title">Bottom</label>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="size-info-button" data-bs-toggle="modal" data-bs-target="#BottomSizeModal">
+                          size
+                        </button>
+                      </div>
+                      <select name="bottom" class="wide" id="id_bottom">
+                        <option value="" selected="">---------</option>
+                        {% for bottom in bottoms %}
+                          {% if bottom.gender == "M" %}
+                            <option value="{{bottom.pk}}">Man
+                              {{bottom.size}}
+                              {{bottom.name}}</option>
+                          {% else %}
+                            <option value="{{bottom.pk}}">Woman
+                              {{bottom.size}}
+                              {{bottom.name}}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <input type="checkbox" id="cbx-delivery" class="inp-cbx" name="delivery"/>
-                  <label class="cbx terms" for="cbx-delivery" style="width:auto;">
-                    <span>
-                      <svg width="12px" height="10px" viewbox="0 0 12 10">
-                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                      </svg>
-                    </span>
-                    <span style="margin-top:-5px;">I want to recieve items by delivery.</span>
-                  </label>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input type="checkbox" id="cbx-delivery" class="inp-cbx" name="delivery"/>
+                    <label class="cbx terms" for="cbx-delivery" style="width:auto;">
+                      <span>
+                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg>
+                      </span>
+                      <span style="margin-top:-5px;">I want to recieve items by delivery.</span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
             <!-- Rental Items End -->
 
             <!-- Date & Time -->
-            <div class="row box first">
-              <div class="box-header">
-                <h3>
-                  <strong>4</strong>Period for Rental
-                </h3>
-                <p>If you want to rental items, please enter below.</p>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <label for="id_start_date" class="label-title">Start Date</label>
-                  <input type="date" name="start_date" class="form-control-date" id="id_start_date">
+            <div id="period-sec">
+              <div class="row box first">
+                <div class="box-header">
+                  <h3>
+                    <strong>4</strong>Period for Rental
+                  </h3>
+                  <p>If you want to rental items, please enter below.</p>
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <label for="id_start_time" class="label-title">Start Time</label>
-                  <input type="time" name="start_time" value="00:00" class="form-control-time" id="id_start_time">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="id_start_date" class="label-title">Start Date</label>
+                    <input type="date" name="start_date" class="form-control-date" id="id_start_date">
+                  </div>
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <label for="id_end_date" class="label-title">End Date</label>
-                  <input type="date" name="end_date" class="form-control-date" id="id_end_date">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="id_start_time" class="label-title">Start Time</label>
+                    <input type="time" name="start_time" value="00:00" class="form-control-time" id="id_start_time">
+                  </div>
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <label for="id_end_time" class="label-title">End Time</label>
-                  <input type="time" name="end_time" value="00:00" class="form-control-time" id="id_end_time">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="id_end_date" class="label-title">End Date</label>
+                    <input type="date" name="end_date" class="form-control-date" id="id_end_date">
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="id_end_time" class="label-title">End Time</label>
+                    <input type="time" name="end_time" value="00:00" class="form-control-time" id="id_end_time">
+                  </div>
                 </div>
               </div>
             </div>
@@ -248,7 +263,7 @@
             <div class="row box">
               <div class="box-header">
                 <h3>
-                  <strong>5</strong>Message
+                  <strong id="message-title">4</strong>Message
                 </h3>
                 <p>If you have something to ask, please tell me.</p>
               </div>
@@ -263,7 +278,7 @@
             <div class="row box">
               <div class="box-header">
                 <h3>
-                  <strong>6</strong>Submission
+                  <strong id="submit-title">5</strong>Submission
                 </h3>
                 <p>Please accept the terms and conditions below.</p>
               </div>

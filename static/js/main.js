@@ -481,6 +481,24 @@
     $(".upload-name").val(fileName);
   }); //upload file name
 
+	
+  $(function(){
+      $("#guestrun-check").click(function() {
+          if ($("input[name=guestrun]").is(":checked")) {
+              $("#guest-run-sec").addClass("show");
+              $("#period-sec").addClass("show");
+              $("#message-title").text("5");
+              $("#submit-title").text("6");
+          } else {
+              $("#guest-run-sec").removeClass("show");
+              $("#period-sec").removeClass("show");
+              $("#message-title").text("4");
+              $("#submit-title").text("5");
+          }
+      })
+  });
+
+
   // Dom Ready
   $(function () {
     if (matchMedia("only screen and (min-width: 991px)").matches) {

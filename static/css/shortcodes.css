@@ -3902,6 +3902,22 @@ a.mapboxgl-ctrl-logo {
 
 /* preloader 2 end */
 
+/* guest run hidden */
+
+#guest-run-sec,
+#period-sec{
+	visibility: hidden;
+	position: absolute;
+	opacity: 0;
+}
+
+.show {
+	position: static !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+	transition-duration: 0.5s;
+}
+
 
 @-moz-keyframes bounceG {
 	0% {
