@@ -18,7 +18,11 @@
             <input type="password" name="password" id="password" placeholder="Your password" value="{{ form.password.value|default_if_none:'' }}">
           </div>
           <div>
-            <a href="#" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal" data-bs-dismiss="modal" class="tfre-reset-password d-flex flex-row-reverse" id="tfre-reset-password">Forgot password?</a>
+            <div class="d-flex flex-row-reverse">
+              <a href="{% url "community:contact_us" %}" class="tfre-reset-password" style="color:#1973E8;">Contact us.</a>
+              <div style="width:5px;"></div>
+              <span>Forgot password?</span>
+            </div>
           </div>
           <input type="hidden" name="action" value="tfre_login_ajax">
           <button type="submit" class="flat-button" style="width:100%; margin:20px 0 20px 0;">Login</button>
