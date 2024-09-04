@@ -34,7 +34,10 @@ def events(request):
     page = int(request.GET.get('p', 1)) #없으면 1로 지정
     paginator = Paginator(events, 5) #한 페이지 당 몇개 씩 보여줄 지 지정 
     events = paginator.get_page(page)
-    page_list = list(range(1,(lenofevents//5)+2))
+    if lenofevents % 5 == 0 :
+        page_list = list(range(1,(lenofevents//5)+1))
+    else:
+        page_list = list(range(1,(lenofevents//5)+2))
     print(page_list)
     context = {"events": events,"len":lenofevents,"page_list":page_list}
     return render(request,"event.html", context)
