@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'django_summernote',
     'imagekit',
+    'multiselectfield',
     "users.apps.UsersConfig",
     "items.apps.ItemsConfig",
     "community.apps.CommunityConfig",

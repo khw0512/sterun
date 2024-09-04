@@ -53,6 +53,7 @@
 	--linear-one: #E9E9E9;
 	--grey: #1E1E1E;
 	--line2: #2E2E2E;
+	--light-grey: #e5e7e9 ;
 }
 
 .text-white {
@@ -3918,6 +3919,22 @@ a.mapboxgl-ctrl-logo {
 	transition-duration: 0.5s;
 }
 
+/* form label */
+#form_search_inner > form > p > label {
+	padding-top:10px;
+	font-weight: bold;
+	font-size: 1.1rem;
+	width: 100%;
+}
+
+.depart-line{
+	border-bottom:solid var(--light-grey) 1px;
+	padding-top:10px;
+}
+
+#id_manager,#id_start_date,#id_start_time,#id_end_date,#id_end_time{
+	width:45%;
+}
 
 @-moz-keyframes bounceG {
 	0% {

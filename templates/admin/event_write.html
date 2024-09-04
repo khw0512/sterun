@@ -12,8 +12,9 @@
     <div style="height:50px;"></div>
     <div class="tocenter">
       <h3>Event Register</h3>
-      <div class="search-form-inner" id="form_search_inner" style="z-index: 1000;">
-        <form action="" method="POST" enctype="multipart/form-data">
+      <div style="height:30px;"></div>
+      <div class="search-form-inner d-flex flex-wrap" id="form_search_inner" style="z-index: 1000; max-width:800px;">
+        <form action="" method="POST" enctype="multipart/form-data" style="width: 100%;">
           {% csrf_token %}
           {{ form.media }}
           {{ form.as_p }}

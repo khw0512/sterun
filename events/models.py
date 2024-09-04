@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils import timezone
 from django_resized import ResizedImageField
+from multiselectfield import MultiSelectField
 from community.models import Manager
 
 # def image_upload_path(instance, filename):
@@ -26,6 +26,13 @@ class GuestRun(models.Model):
         ("Free","Full Access"),
     ]
 
+    LANGUAGE = [
+        ("KO","Korean"),
+        ("EN","English"),
+        ("JP","Japanese"),
+        ("CN","Chinese"),
+    ]
+
     event_id = models.AutoField(
         primary_key=True,
     )
@@ -48,6 +55,7 @@ class GuestRun(models.Model):
         choices=LEVEL,
         default="Free",
     )
+    lang = MultiSelectField(max_length=10, choices=LANGUAGE)
     amount = models.IntegerField(default=0)
     route = models.CharField(max_length=50, blank=False)
     desc = models.TextField(blank=True)

@@ -7,6 +7,14 @@ from .models import GuestRun
 class WriteForm(forms.ModelForm):
     class Meta:
         model = GuestRun
+
+        LANGUAGE = (
+            ("KO","Korean"),
+            ("EN","English"),
+            ("JP","Japanese"),
+            ("CN","Chinese"),
+        )
+
         fields = [
             "title",
             "manager",
@@ -18,6 +26,7 @@ class WriteForm(forms.ModelForm):
             "route_image",
             "start_point",
             "level",
+            "lang",
             "amount",
             "route",
             "desc",
@@ -38,6 +47,7 @@ class WriteForm(forms.ModelForm):
                 attrs={"type": "date", "class": "form-control"}
             ),
             "level": forms.Select(attrs={"class": "form-control"}),
+            "lang" : forms.CheckboxSelectMultiple(attrs={"class":"form-lang"}, choices=LANGUAGE),
             "start_point": forms.TextInput(attrs={"class": "form-control"}),
             "amount": forms.NumberInput(attrs={"class": "form-control"}),
             "image": forms.FileInput(
@@ -60,6 +70,7 @@ class WriteForm(forms.ModelForm):
             "start_point":"시작 지점",
             "route_image":"루트 이미지",
             "level":"난이도",
+            "lang":"언어(모두선택)",
             "amount":"참가비(달러)",
             "route":"루트 설명",
             "desc":"이벤트 설명",
@@ -68,6 +79,14 @@ class WriteForm(forms.ModelForm):
 class UpdateForm(forms.ModelForm):
     class Meta:
         model = GuestRun
+
+        LANGUAGE = (
+            ("KO","Korean"),
+            ("EN","English"),
+            ("JP","Japanese"),
+            ("CN","Chinese"),
+        )
+
         fields = [
             "title",
             "manager",
@@ -79,6 +98,7 @@ class UpdateForm(forms.ModelForm):
             "route_image",
             "start_point",
             "level",
+            "lang",
             "amount",
             "route",
             "desc",
@@ -101,6 +121,7 @@ class UpdateForm(forms.ModelForm):
                 attrs={"type": "date", "class": "form-control"}
             ),
             "level": forms.Select(attrs={"class": "form-control"}),
+            "lang" : forms.CheckboxSelectMultiple(attrs={"class":"form-lang"}, choices=LANGUAGE),
             "start_point": forms.TextInput(attrs={"class": "form-control"}),
             "amount": forms.NumberInput(attrs={"class": "form-control"}),
             "image": forms.FileInput(
@@ -125,6 +146,7 @@ class UpdateForm(forms.ModelForm):
             "start_point":"시작 지점",
             "route_image":"루트 이미지",
             "level":"난이도",
+            "lang":"언어(모두선택)",
             "amount":"참가비(달러)",
             "route":"루트 설명",
             "desc":"이벤트 설명",

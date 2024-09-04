@@ -15,6 +15,7 @@ def event_write(request):
     form = WriteForm(request.POST, request.FILES)
     if request.method == "POST":
         if form.is_valid():
+            
             guestrun = form.save()
             guestrun.save()
             return redirect("community:events")
@@ -138,6 +139,8 @@ def update_event(request, pk):
     form = UpdateForm(request.POST, request.FILES, instance=event)
     if request.method == "POST":
         if form.is_valid():
+            lang = form.cleaned_data.get("lang")
+            print(lang)
             event = form.save(commit=False)
             event.save()
             return redirect("community:event_table")
