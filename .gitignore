@@ -1,10 +1,8 @@
-db.splite3
+db.sqlite3
 __pycache__
 .idea
 .vscode
 venv
+.venv
 .venvls
-media/avatar
-media/reservation
-media/runMain
-media/runRoute
+media/

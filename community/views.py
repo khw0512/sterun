@@ -38,7 +38,6 @@ def events(request):
         page_list = list(range(1,(lenofevents//5)+1))
     else:
         page_list = list(range(1,(lenofevents//5)+2))
-    print(page_list)
     context = {"events": events,"len":lenofevents,"page_list":page_list}
     return render(request,"event.html", context)
 
@@ -72,7 +71,6 @@ def mypage(request, pk):
     if request.method == "GET":
         result = reservation.filter(reserv_id=pk)
         if result: 
-            print(result)
             sub_total = result.values()[0]["amount"]
             status = result.values()[0]["status"]
             delivery = result.values()[0]["delivery"]

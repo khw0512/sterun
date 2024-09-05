@@ -32,9 +32,9 @@
             </div>
             <div class="box-events-slide">
               {% for data in guestrun %}
-                <span class="new-event">new Event
+                <span class="new-event">New Event
                 </span>
-                <img src="/media/{{data.image}}" alt="" class="new-event">
+                <img src="/media/{{data.image}}" alt="" class="new-event" style="object-fit:cover;">
                 <div class="content-event">
                   <h2 class="title-event">
                     <a href="{% url "community:event_detail" data.event_id %}" class="">{{data.title}}</a>
