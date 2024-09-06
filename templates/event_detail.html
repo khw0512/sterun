@@ -14,7 +14,7 @@
       <div class="themeflat-container">
         <div class="row">
           <div class="widget-blog-content d-flex justify-content-center">
-            <div class="post-wrap" style="max-width:800px;">
+            <div class="post-wrap post-sec">
               <article class="entry format-standard">
                 <div class="main-post">
                   <h1 class="entry-title-single">
@@ -110,12 +110,12 @@
                       <p class="post">
                         <img src="/media/{{article.route_image}}" alt="">
                       </p>
+                      <div class="depart-line"></div>
+                      <div style="height:30px;"></div>
                     {% else %}
                     {% endif %}
                   </div>
                 </div>
-                <div class="depart-line"></div>
-                <div style="height:30px;"></div>
                 <!-- /.main-post -->
                 <div>
                   <a href="{% url "events:event_register" article.event_id %}">

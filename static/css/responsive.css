@@ -997,6 +997,9 @@
 	.mobile-logo-margin{
 		margin-left:15%;
 	}
+	.post-sec{
+		width:100%;
+	}
 }
 @media only screen and (max-width: 554px) {
 	.tf-product-tab .tab-wrap-product .title-section {

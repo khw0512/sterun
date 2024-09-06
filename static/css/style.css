@@ -1805,6 +1805,14 @@ blockquote.alignleft .whisper {
 	flex-wrap: wrap;
 }
 
+.post-sec{
+	max-width: 800px;
+}
+
+div.content-post-single > div > iframe{
+	width:100%;
+}
+
 .entry .wrap-share ul.flat-socials {
 	float: right;
 	margin-top: -5px;
