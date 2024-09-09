@@ -58,6 +58,7 @@ class GuestRun(models.Model):
     lang = MultiSelectField(max_length=10, choices=LANGUAGE)
     amount = models.IntegerField(default=0)
     route = models.CharField(max_length=50, blank=False)
+    map_link = models.CharField(max_length=100, blank=True, null=True)
     desc = models.TextField(blank=True)
     completed = models.BooleanField(default=False)
 

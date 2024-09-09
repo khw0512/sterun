@@ -24,6 +24,7 @@ class WriteForm(forms.ModelForm):
             "end_time",
             "image",
             "route_image",
+            "map_link",
             "start_point",
             "level",
             "lang",
@@ -56,6 +57,7 @@ class WriteForm(forms.ModelForm):
             "route_image" : forms.FileInput(
                 attrs={"id": "event-route-img", "class": "form-control"}
             ),
+            "map_link": forms.TextInput(attrs={"class": "form-control"}),
             "desc": SummernoteWidget(attrs={'summernote': {'width': '100%', 'height': '400px'}}),
             "route": forms.TextInput(attrs={"class": "form-control"}),
         }
@@ -69,6 +71,7 @@ class WriteForm(forms.ModelForm):
             "image":"메인 이미지",
             "start_point":"시작 지점",
             "route_image":"루트 이미지",
+            "map_link":"네이버맵 링크",
             "level":"난이도",
             "lang":"언어(모두선택)",
             "amount":"참가비(달러)",
@@ -96,6 +99,7 @@ class UpdateForm(forms.ModelForm):
             "end_time",
             "image",
             "route_image",
+            "map_link",
             "start_point",
             "level",
             "lang",
@@ -130,6 +134,7 @@ class UpdateForm(forms.ModelForm):
             "route_image" : forms.FileInput(
                 attrs={"id": "event-route-img", "class": "form-control"}
             ),
+            "map_link": forms.TextInput(attrs={"class": "form-control"}),
             "desc": SummernoteWidget(attrs={'summernote': {'width': '100%', 'height': '400px'}}),
             "route": forms.TextInput(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
@@ -145,6 +150,7 @@ class UpdateForm(forms.ModelForm):
             "image":"메인 이미지",
             "start_point":"시작 지점",
             "route_image":"루트 이미지",
+            "map_link":"네이버맵 링크",
             "level":"난이도",
             "lang":"언어(모두선택)",
             "amount":"참가비(달러)",

@@ -238,6 +238,14 @@
                   <li>
                     <a href="{% url "rental:rental_register" %}">Item Rental Reservation</a>
                   </li>
+                  {% if user.is_staff %}
+                    <li>
+                      <a href="{% url "community:data" %}">Data(staff only)</a>
+                    </li>
+                    <li>
+                      <a href="admin">Admin(staff only)</a>
+                    </li>
+                  {% endif %}
                 </ul>
                 <!-- /.menu -->
               </div>

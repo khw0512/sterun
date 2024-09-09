@@ -110,10 +110,15 @@
                       <p class="post">
                         <img src="/media/{{article.route_image}}" alt="">
                       </p>
-                      <div class="depart-line"></div>
-                      <div style="height:30px;"></div>
                     {% else %}
                     {% endif %}
+                    <a href="{{article.map_link}}"></a>
+                    Naver Map Link :
+                    <a href="{{article.map_link}}" target="_blank">
+                      <button class="map-button">CLICK!!</button>
+                    </a>
+                    <div class="depart-line"></div>
+                    <div style="height:30px;"></div>
                   </div>
                 </div>
                 <!-- /.main-post -->

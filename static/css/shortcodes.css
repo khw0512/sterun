@@ -3995,6 +3995,13 @@ a.mapboxgl-ctrl-logo {
 	width:45%;
 }
 
+.map-button{
+	background-color:#e8f5dc;
+	color:var(--line2);
+	padding:5px;
+	border-radius: 5px;
+}
+
 @-moz-keyframes bounceG {
 	0% {
 		-moz-transform: scale(1.2);

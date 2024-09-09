@@ -36,6 +36,7 @@ class Reservation(models.Model):
         blank=True,
         null=True,
     )
+    top_q = models.IntegerField(default=0)
     bottom = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
@@ -44,6 +45,7 @@ class Reservation(models.Model):
         blank=True,
         null=True,
     )
+    bottom_q = models.IntegerField(default=0)
     shoes = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
