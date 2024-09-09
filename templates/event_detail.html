@@ -112,11 +112,13 @@
                       </p>
                     {% else %}
                     {% endif %}
-                    <a href="{{article.map_link}}"></a>
-                    Naver Map Link :
-                    <a href="{{article.map_link}}" target="_blank">
-                      <button class="map-button">CLICK!!</button>
-                    </a>
+                    <div style="padding:5px 0 10px 0">
+                      <span style="padding-left:10px; font-weight:bold;">
+                        <i class="fa-solid fa-map" style="color:var(--primary); padding-right:5px;"></i>Naver Map Link :</span>
+                      <a href="{{article.map_link}}" target="_blank">
+                        <button class="map-button">Go to Naver Map !!</button>
+                      </a>
+                    </div>
                     <div class="depart-line"></div>
                     <div style="height:30px;"></div>
                   </div>
