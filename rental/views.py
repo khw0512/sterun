@@ -131,7 +131,10 @@ def update(request, pk):
             return redirect("community:data")
     else:
         form = ReservationForm(instance=reservation)
-        days = (reservation.end_date-reservation.start_date).days
+        if reservation.start_date != None or reservation.end_date !=None:
+            days = (reservation.end_date-reservation.start_date).days
+        else:
+            days = 0
         shoes_amount = 0
         top_amount = 0
         bottom_amount = 0
