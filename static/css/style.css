@@ -275,6 +275,44 @@ input::-moz-focus-inner {
 	box-sizing: border-box;
 }
 
+/* S-CORE dream font */
+
+@font-face {
+  font-family : 's-core-d-100';
+  src : url(../font/S-Core_Dream_OTF/SCDream1.otf);
+}
+@font-face {
+  font-family : 's-core-d-200';
+  src : url(../font/S-Core_Dream_OTF/SCDream2.otf);
+}
+@font-face {
+  font-family : 's-core-d-300';
+  src : url(../font/S-Core_Dream_OTF/SCDream3.otf);
+}
+@font-face {
+  font-family : 's-core-d-400';
+  src : url(../font/S-Core_Dream_OTF/SCDream4.otf);
+}
+@font-face {
+  font-family : 's-core-d-500';
+  src : url(../font/S-Core_Dream_OTF/SCDream5.otf);
+}
+@font-face {
+  font-family : 's-core-d-600';
+  src : url(../font/S-Core_Dream_OTF/SCDream6.otf);
+}
+@font-face {
+  font-family : 's-core-d-700';
+  src : url(../font/S-Core_Dream_OTF/SCDream7.otf);
+}
+@font-face {
+  font-family : 's-core-d-800';
+  src : url(../font/S-Core_Dream_OTF/SCDream8.otf);
+}
+@font-face {
+  font-family : 's-core-d-900';
+  src : url(../font/S-Core_Dream_OTF/SCDream9.otf);
+}
 
 /* Repeatable Patterns
 -------------------------------------------------------------- */
@@ -3551,4 +3589,11 @@ ul.link-footer-bottom {
     justify-content: center;
     display: flex;
     flex-direction: column;
+}
+
+.guide-title{
+	padding: 20px 0 20px 0;
+    color: var(--black);
+	font-size: 4rem;
+	font-weight: 700;
 }

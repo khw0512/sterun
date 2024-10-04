@@ -805,6 +805,10 @@ div.tabs div.current {
     text-align: center;
 }
 
+.guide-title{
+    color:var(--sterun-white-color);
+}
+
 
 /* Mobile Env. */
 @media screen and (max-width:700px) {
@@ -1221,3 +1225,4 @@ div.tabs div.current {
     padding: 1em !important;
   }
 }
+

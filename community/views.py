@@ -28,6 +28,9 @@ def privacy_policy(request):
 def terms_of_services(request):
     return render(request,"modal/terms_of_services.html")
 
+def mate_guide(request, pg):
+    return render(request,"guide/page"+pg+".html")
+
 def events(request):
     events = GuestRun.objects.filter(completed=False).exclude(status="ST1").order_by("status","start_date")
     lenofevents = len(events)

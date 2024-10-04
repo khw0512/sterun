@@ -161,3 +161,4 @@ def delevent(request, pk):
 def deleventpage(request, pk):
     event = GuestRun.objects.filter(pk=pk)
     return render(request, "admin/event_del.html", {"events": event})
+

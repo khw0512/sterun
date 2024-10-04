@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <!--<![endif]-->
+
+  <head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>STERUN</title>
+
+    <meta name="author" content="sterun.kr">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Search -->
+    <meta name="google-site-verification" content="2K_C2P_r_OCxrnoZuPCoSFSlcAXnDVfNV1TtTxOtlhc"/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-utilities.rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-utilities.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.rtl.min.css' %}">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/colors/color1.css' %}" id="colors">
+
+    <!-- Carousel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+
+    <!-- Wow JS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper-bundle.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.min.css' %}">
+
+    <!-- Favicon and touch icons -->
+    <link href="{% static 'img/icon/favicon.png' %}" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="{% static 'img/icon/favicon.png' %}" rel="apple-touch-icon-precomposed">
+    <link href="{% static 'img/icon/favicon.png' %}" rel="shortcut icon">
+
+    <!-- Event Board CSS -->
+    <link href="{% static "css/board/slick.css" %}" rel="stylesheet">
+    <link href="{% static "css/board/style.css" %}" rel="stylesheet">
+
+    <!--[if lt IE 9]> <script src="javascript/html5shiv.js"></script> <script src="javascript/respond.min.js"></script> <![endif]-->
+  </head>
+
+  <body class="header-sticky">
+    <!-- preload -->
+    <div class="preload preload-container">
+      <div class="swapping-squares-spinner">
+        <!--div class="square"></div> <div class="square"></div> <div class="square"></div> <div class="square"></div-->
+        <div class="loader"></div>
+      </div>
+    </div>
+    <!-- /preload -->
+    <!-- Header -->
+    <div class="header-top">
+      <div class="themeflat-container">
+        <div class="header-top-inner">
+          <div class="address">
+            <a href="mailto:">
+              <i class="icon-Vector"></i>sterun@joollab.com</a>
+            <address>
+              <i class="icon-Vector-22"></i>300, Digital-ro, Guro-gu, Seoul, Republic of Korea</address>
+          </div>
+          <div class="social-icon">
+            <a href="facebook.com">
+              <i class="icon-facebook"></i>
+            </a>
+            <a href="instagram.com">
+              <i class="icon-instagram"></i>
+            </a>
+            <a href="youtube.com">
+              <i class="icon-youtube"></i>
+            </a>
+            <a href="twitter.com">
+              <i class="icon-twitter"></i>
+            </a>
+            <a href="pinterest.com">
+              <i class="icon-pinterest"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header id="header" class="header style1 clearfix">
+      <div class="themeflat-container">
+        <div class="header-inner">
+          <div id="logo" class="logo">
+            <a href="{% url "community:index" %}" rel="home">
+              <img class="mobile-logo-margin" height="auto" width="auto" id="a2" src="{% static 'img/logo.png' %}" alt="image">
+            </a>
+          </div>
+          <div class="guide-title">
+            Running Mate Guide
+          </div>
+          <div style="width: 200px;"></div>
+        </div>
+        <!-- /.header-inner -->
+      </div>
+    </header>
+    <!-- /.header -->
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer background-black">
+      <div class="footer-widgets">
+        <div class="themeflat-container">
+          <div class="row footer-top">
+            <div class="col-xxl-4 col-lg-4 col-xl-4 col-md-12 logo-footer">
+              <div class="widget">
+                <div class="textwidget">
+                  <img height="auto" width="auto" id="a1" src="{% static 'img/logo-footer.png'%}" alt="images">
+                  <p>Welcome to our running community! Discover the joy of running, connect with fellow enthusiasts, and unlock your full happiness and comport with our services.
+                  </p>
+                </div>
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /.col-md-4 -->
+
+            <div class="col-xxl-4 col-lg-4 col-xl-4 col-md-6 link-footer">
+              <div class="widget widget_menu-footer">
+                <h5 class="widget-title">Quick Links</h5>
+                <ul class="menu-footer">
+                  <li>
+                    <a href="{% url "community:search" %}">My Page</a>
+                  </li>
+                  <li>
+                    <a href="{% url "community:events" %}">Geust Run</a>
+                  </li>
+                  <li>
+                    <a href="{% url "community:rental_items" %}">Rental Items</a>
+                  </li>
+                  <li>
+                    <a href="{% url "community:contact_us" %}">Contact Us</a>
+                  </li>
+                </ul>
+                <!-- /.menu -->
+              </div>
+              <!-- /.widget -->
+              <div class="widget widget_menu-footer">
+                <h5 class="widget-title">Forms</h5>
+                <ul class="menu-footer">
+                  <li>
+                    <a href="{% url "community:events" %}">Guest Run Reservation</a>
+                  </li>
+                  <li>
+                    <a href="{% url "rental:rental_register" %}">Item Rental Reservation</a>
+                  </li>
+                  {% if user.is_staff %}
+                    <li>
+                      <a href="{% url "community:data" %}">Data(staff only)</a>
+                    </li>
+                    <li>
+                      <a href="/admin">Admin(staff only)</a>
+                    </li>
+                  {% endif %}
+                </ul>
+                <!-- /.menu -->
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /.col-md-4 -->
+
+            <div class="col-xxl-4 col-lg-4 col-xl-4 col-md-6 new-letter">
+              <div class="widget widget_text">
+                <h5 class="widget-title">Please Send Message</h5>
+
+                <p>
+                  <i class="icon-MapPin"></i>300, Digital-ro, Guro-gu, Seoul, Republic of Korea</p>
+
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /.col-md-4 -->
+
+          </div>
+          <!-- /.row -->
+          <div class="row footer-bottom">
+            <div class="col-md-6 col-sm-12">
+              <div class="copyright">
+                <p>©2024
+                  <a href="{% url "community:index" %}">
+                    STERUN.</a>
+                  All Rights Reserved.
+                </p>
+              </div>
+            </div>
+            <!-- /.col-md-6 -->
+            <div class="col-md-6 col-sm-12">
+              <ul class="link-footer-bottom">
+                <li>
+                  <a href="{% url "community:terms_of_services" %}">Terms Of Services</a>
+                </li>
+                <li>
+                  <a href="{% url "community:privacy_policy" %}">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="{% url "community:cookie_policy" %}">Cookie Policy</a>
+                </li>
+                <li>
+                  <div style="width: 30px;"></div>
+                </li>
+              </ul>
+              <!-- /.menu -->
+            </div>
+            <!-- /.col-md-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.footer-widgets -->
+    </footer>
+    <!-- Footer -->
+
+    <!-- Go Top -->
+    <a class="go-top">
+      <i class="icon-ctrl"></i>
+    </a>
+
+    <script src="https://kit.fontawesome.com/df860d1a81.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/count-down.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-waypoints.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-countTo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script>
+      var logo2url = "{% static 'img/logo2@.png' %}";
+      var logov2url = "{% static 'img/logo-v2@.png' %}";
+      var logofooter2url = "{% static 'img/logo-footer2@.png' %}";
+    </script>
+  </body>
+
+</html>
