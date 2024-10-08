@@ -1,0 +1,133 @@
+{% extends "base-sche.html" %}
+{% load static %}
+{% block content %}
+
+  <!--div class="calender"> {{ YC|safe }} </div-->
+
+  <div class="cal-title">{{year}}년
+    {{month}}월</div>
+  <div class="btn-wrapper">
+    <a href="{% url "schedule:schedule" month|add:-1 %}">
+      <div class="btn prev">PREV</div>
+    </a>
+    <a href="{% url "schedule:schedule" 10 %}">
+      <div class="btn center">TODAY</div>
+    </a>
+    <a href="{% url "schedule:schedule" month|add:1 %}">
+      <div class="btn next">NEXT</div>
+    </a>
+  </div>
+  <table class="calendar">
+    <thead>
+      <tr class="calendar_header">
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th style="color:blue;">토</th>
+        <th style="color:red;">일</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for value in week_data_dic.values %}
+        <tr class="tb-row">
+          {% for day in value %}
+            <td class="date-cell">
+              {% if day.0 != 0 and day.1 != 0 %}
+                <div class="date date-event">{{ day.0 }}</div>
+              {% elif day.0 != 0 %}
+                <div class="date event-empty">{{ day.0 }}</div>
+              {% endif %}
+              {% if day.1 != 0 %}
+                <div class="event-count date-event">Run Day :)</div>
+              {% else %}
+                <div class="event-count event-empty"></div>
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="infoBar">
+    <div class="infoBar-left">
+      <div class="infoBar-left_date">
+        <div class="date-box">
+          <span class="infoMonth">-</span>
+          <span class="infoDay">-</span>
+        </div>
+      </div>
+      <div class="infoBar-left_remain">
+        <div class="remain-box">
+          <span>예약인원</span>
+          <span class="remain-num">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="infoBar">
+    <div class="infoBar-right">
+      <div class="sendBtn-purchase">
+        <button class="clckBox purchase-box">
+          이벤트 생성
+        </button>
+      </div>
+
+      <div class="sendBtn-cancel">
+        <button class="clckBox cancel-box">
+          이벤트 삭제
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class='event-info'></div>
+
+  <form id="dateSelForm" method="POST" action="">
+    <input id="monthForm" value="" type="hidden">
+    <input id="dayForm" value="" type="hidden">
+  </form>
+
+  <script src="{% static 'js/calendar.js' %}"></script>
+  <script>
+    let month = "{{month|escapejs}}";
+    $(document).ready(function () {
+      $('.date-cell').click(function () {
+        let day = this
+          .children[0]
+          .textContent;
+
+        $.ajax({
+          url: "{% url 'events:eventInfo' %}",
+          type: 'GET',
+          data: {
+            'csrfmiddlewaretoken': '{{csrf_token}}',
+            'month': month,
+            'day': day
+          },
+          dateType: "json",
+          success: function (data) {
+            var event = JSON.parse(data);
+            try {
+              title = event[0].fields.title;
+              start_time = event[0].fields.start_time;
+              end_time = event[0].fields.end_time;
+              start_point = event[0].fields.start_point;
+              lang = event[0].fields.lang;
+              level = event[0].fields.level;
+              route = event[0].fields.route;
+              const btitle = document.getElementsByClassName('event-info')[0];
+              btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트:' + route + '</div>' + '<div class="event-point">- 시작지점:' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
+            } catch (e) {
+              const btitle = document.getElementsByClassName('event-info')[0];
+              btitle.innerHTML = '';
+            }
+          }
+        })
+      })
+
+    })
+  </script>
+
+{% endblock %}

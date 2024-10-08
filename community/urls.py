@@ -21,4 +21,5 @@ urlpatterns = [
     path("inquiry/", views.inquiry, name="inquiry"),
     path("email/", views.email, name="email"),
     path("mate-guide/<str:pg>", views.mate_guide, name="mate_guide"),
+
 ]

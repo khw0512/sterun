@@ -1,0 +1,271 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: 'GmarketSansMedium';
+    box-sizing: border-box;
+}
+
+tr {
+    border:0 !important;
+}
+
+.calender{
+    display: flex;
+    justify-content: center;
+}
+
+.cal-title{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 20px 0 20px 0;
+}
+
+body > table > thead > tr > th{
+    border: 1px solid grey;
+}
+
+table{
+    width:100%;
+    text-align: center;
+}
+
+body > div.calender > table > tbody > tr > td{
+    padding-bottom:20px;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.header-logo{
+    background-color: #4367AF;
+}
+
+.main-logo{
+    display: flex;
+    max-width: 30%;
+    margin:auto;
+    padding: 20px 0 20px 0;
+}
+
+.selected{
+    background-color: grey !important;
+    font-weight: 700;
+    color: #fff !important;
+    box-shadow: 0 0 0 2px rgb(255, 255, 0) inset;
+}
+
+.calendar_header{
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.date{
+    font-size: 1rem;
+    font-weight: 500;
+    height: 40px;
+}
+
+.date-event{
+    font-weight: 900;
+    background-color: #3BA181;
+    padding-top:10px;
+}
+
+.event-count{
+    font-size:0.7rem;
+    padding-bottom: 10px;
+}
+
+.event-info{
+    margin-top:10px;
+}
+
+.event-ticket{
+    border:1px solid #4367AF;
+    padding: 10px;
+    background-color: #D6FA51;
+}
+
+.event-title{
+    font-size: 1.3rem;
+    display: flex;
+    padding-bottom:10px;
+}
+.event-start{
+    font-size: 0.8rem;
+    display: flex;
+}
+.event-end{
+    font-size: 0.8rem;
+    display: flex;
+}
+.event-route{
+    font-size: 0.8rem;
+    display: flex;
+}
+.event-point{
+    font-size: 0.8rem;
+    display: flex;
+}
+.event-level{
+    font-size: 0.8rem;
+    display: flex;
+}
+.event-lang{
+    font-size: 0.8rem;
+    display: flex;
+}
+
+.tbspace{
+    height:2rem;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom:10px;
+}
+.btn{
+    font-size: 0.6rem;
+    text-align: center;
+    cursor: pointer;
+    width: 80px;
+    padding: 5px 0 5px 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 9px rgba(172, 172, 172, 0.493);
+    border: 1px solid rgb(97, 97, 97);
+}
+.btn.prev{border-radius: 0px 40px 40px 0px;}
+.btn.center{border-radius: 40px 40px 40px 40px;}
+.btn.next{border-radius: 40px 0px 0px 40px;}
+
+/* INFO BAR */
+.infoBar{
+    width: 100vw;
+
+    font-size: 0;
+}
+/* info-bar LEFT */
+.infoBar-left{
+    vertical-align: top;
+    display: inline-block;
+    width: 99%;
+    font-size: 0px;
+}
+.infoBar-left_date{
+    vertical-align: top;
+    display: inline-block;
+    width: 49%;
+    font-size: 20px;
+}
+.infoBar-left_remain{
+    vertical-align: top;
+    display: inline-block;
+    width: 49%;
+    font-size: 20px;
+}
+.infoBar-left > div{
+    border: 1px solid #fff;
+}
+
+.date-box{
+    text-align: center;
+    position: relative;
+    font-size: 1rem;
+    margin: auto;
+    width: 99%;
+    line-height: 50px;
+    border-radius: 20px;
+    color: #000;
+    background-color: #fff;
+}
+
+.remain-box{
+    text-align: center;
+    position: relative;
+    font-size: 1rem;
+    margin: auto;
+    width: 99%;
+    line-height: 50px;
+    border-radius: 20px;
+    color: #000;
+    background-color: #fff;
+}
+.remain-box > p:last-child{
+    color: rgb(209, 68, 68);
+    font-weight: bold;
+}
+
+
+/* info-bar RIGHT */
+.infoBar-right{
+    vertical-align: top;
+    display: inline-block;
+    width: 99%;
+    color: #000;
+    font-size: 0px;
+}
+.sendBtn-purchase{
+    vertical-align: top;
+    display: inline-block;
+    width: 49%;
+
+    font-size: 20px;
+}
+.sendBtn-cancel{
+    vertical-align: top;
+    display: inline-block;
+    width: 49%;
+
+    font-size: 20px;
+}
+
+.purchase-box{
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 99%;
+    line-height: 50px;
+    border-radius: 20px;
+    color: #000;
+    background-color: #fff;
+    box-shadow: 1px 1px 9px rgba(172, 172, 172, 0.493);
+    border: 1px solid rgb(97, 97, 97);
+    
+}
+
+.cancel-box{
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 99%;
+    line-height: 50px;
+    border-radius: 20px;
+    color: #000;
+    background-color: #fff;
+    box-shadow: 1px 1px 9px rgba(172, 172, 172, 0.493);
+    border: 1px solid rgb(97, 97, 97);
+}
+.clckBox{transition: all .3s;}
+.clckBox:hover{
+    color: #fff;
+    background-color: rgb(97, 97, 97) !important;
+}
+
+.sendBtn{
+    cursor: pointer;
+    width: 20%;
+    height: 50px;
+    /* margin: auto; */
+    background-color: blueviolet;
+}

@@ -1,10 +1,14 @@
-from datetime import datetime
+from datetime import datetime, date
+from django.http import JsonResponse
 from django.conf import settings
 from django.core.mail import send_mail
+from django.core import serializers
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.shortcuts import get_object_or_404, redirect, render
 import requests
+import calendar
+import json
 
 from events.models import GuestRun
 from items.models import Item
@@ -162,3 +166,25 @@ def deleventpage(request, pk):
     event = GuestRun.objects.filter(pk=pk)
     return render(request, "admin/event_del.html", {"events": event})
 
+year1 = datetime.now().year
+month1 = datetime.now().month
+
+def eventInfo(request):
+    month = request.GET.get('month')
+    day = request.GET.get('day')
+    if day !="":
+        check_date= date(int(year1),int(month),int(day))
+        print(check_date)
+    else:
+        check_date= date(2000,1,1)
+
+    guestruns = GuestRun.objects.filter(completed=False).filter(start_date__month=month).filter(manager='2')
+    print(len(guestruns))
+    start_date = guestruns.values()[0]['start_date']
+    end_date = guestruns.values()[0]['end_date']
+
+    if start_date <= check_date and check_date <= end_date:
+        context = serializers.serialize("json", guestruns)
+    else:
+        context = None
+    return JsonResponse(context, safe=False)

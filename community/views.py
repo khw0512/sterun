@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, render
 import requests
+import calendar
 from community.models import ContactUs
 from events.models import GuestRun
 from rental.models import Reservation
@@ -157,3 +158,7 @@ def email(request):
     recipient_list = ['mylves@hanmail.net']
     send_mail(subject, message, email_from, recipient_list)
     return redirect('community:index')
+
+
+
+

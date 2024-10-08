@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "rental.apps.RentalConfig",
     "events.apps.EventsConfig",
     "paypal.apps.PaypalConfig",
+    "scalendar.apps.ScalendarConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

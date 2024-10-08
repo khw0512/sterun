@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>STERUN-MANAGER</title>
+  </head>
+
+  <body>
+    <div class="header-logo">
+      <img class="main-logo" src="{% static "img/sterun-logo-2.png" %}" alt="">
+    </div>
+    {% block content %}{% endblock %}
+  </body>
+
+</html>
