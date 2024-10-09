@@ -5,5 +5,5 @@ from . import views
 app_name = "schedule"
 
 urlpatterns = [
-    path("<str:id>", views.schedule, name="schedule"),
+    path("<str:id>/<str:user_id>", views.schedule, name="schedule"),
 ]

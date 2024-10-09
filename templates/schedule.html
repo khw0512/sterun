@@ -7,13 +7,13 @@
   <div class="cal-title">{{year}}년
     {{month}}월</div>
   <div class="btn-wrapper">
-    <a href="{% url "schedule:schedule" month|add:-1 %}">
+    <a href="{% url "schedule:schedule" user_id month|add:-1 %}">
       <div class="btn prev">PREV</div>
     </a>
-    <a href="{% url "schedule:schedule" 10 %}">
+    <a href="{% url "schedule:schedule" user_id 10 %}">
       <div class="btn center">TODAY</div>
     </a>
-    <a href="{% url "schedule:schedule" month|add:1 %}">
+    <a href="{% url "schedule:schedule" user_id month|add:1 %}">
       <div class="btn next">NEXT</div>
     </a>
   </div>
@@ -92,6 +92,7 @@
   <script src="{% static 'js/calendar.js' %}"></script>
   <script>
     let month = "{{month|escapejs}}";
+    let user_id = "{{user_id|escapejs}}";
     $(document).ready(function () {
       $('.date-cell').click(function () {
         let day = this
@@ -104,7 +105,8 @@
           data: {
             'csrfmiddlewaretoken': '{{csrf_token}}',
             'month': month,
-            'day': day
+            'day': day,
+            'user_id':user_id
           },
           dateType: "json",
           success: function (data) {
@@ -118,7 +120,7 @@
               level = event[0].fields.level;
               route = event[0].fields.route;
               const btitle = document.getElementsByClassName('event-info')[0];
-              btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트:' + route + '</div>' + '<div class="event-point">- 시작지점:' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
+              btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
             } catch (e) {
               const btitle = document.getElementsByClassName('event-info')[0];
               btitle.innerHTML = '';

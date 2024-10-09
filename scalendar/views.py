@@ -8,11 +8,12 @@ from events.models import GuestRun
 yearNow = datetime.now().year
 monthNow = datetime.now().month
 
-def schedule(request,id):
+def schedule(request,id,user_id):
 
     month_int = int(id)
 
-    guestruns = GuestRun.objects.values().filter(completed=False).filter(start_date__month=month_int).filter(manager='2')
+    guestruns = GuestRun.objects.values().filter(completed=False).filter(start_date__month=month_int).filter(manager=user_id)
+    
     print(len(guestruns))
     if guestruns:
         start_month = guestruns[0]['start_date'].month
@@ -64,6 +65,7 @@ def schedule(request,id):
         'year':yearNow,
         'month':month_int,
         'week_data_dic':data_dic,
+        'user_id':user_id,
     }
     return render(request, 'schedule.html', context)
 

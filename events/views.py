@@ -172,13 +172,14 @@ month1 = datetime.now().month
 def eventInfo(request):
     month = request.GET.get('month')
     day = request.GET.get('day')
+    user_id = request.GET.get('user_id')
     if day !="":
         check_date= date(int(year1),int(month),int(day))
         print(check_date)
     else:
         check_date= date(2000,1,1)
 
-    guestruns = GuestRun.objects.filter(completed=False).filter(start_date__month=month).filter(manager='2')
+    guestruns = GuestRun.objects.filter(completed=False).filter(start_date__month=month).filter(manager=user_id)
     print(len(guestruns))
     start_date = guestruns.values()[0]['start_date']
     end_date = guestruns.values()[0]['end_date']
