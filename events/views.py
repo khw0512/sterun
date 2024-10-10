@@ -101,6 +101,9 @@ def event_register(request, pk):
 
         reservation.save()
 
+        event.participant.split().append(username)
+        evnet.save()
+
         # LINE Notify 액세스 토큰
         line_token = "keAeVnqfCkgFuxZSRBGUwymSN9aqpQC5NXV68GoOVLB"
 

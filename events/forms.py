@@ -105,6 +105,7 @@ class UpdateForm(forms.ModelForm):
             "lang",
             "amount",
             "route",
+            "participant",
             "desc",
             "status",
             "completed"
@@ -137,6 +138,7 @@ class UpdateForm(forms.ModelForm):
             "map_link": forms.TextInput(attrs={"class": "form-control"}),
             "desc": SummernoteWidget(attrs={'summernote': {'width': '100%', 'height': '400px'}}),
             "route": forms.TextInput(attrs={"class": "form-control"}),
+            "participant": forms.TextInput(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
             "completed":forms.CheckboxInput(attrs={"class": "form-control"}),
         }
@@ -155,6 +157,7 @@ class UpdateForm(forms.ModelForm):
             "lang":"언어(모두선택)",
             "amount":"참가비(달러)",
             "route":"루트 설명",
+            "participant":"참여자 리스트",
             "desc":"이벤트 설명",
             "status": "상태",
             "completed":"완료여부",

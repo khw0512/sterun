@@ -30,7 +30,6 @@ function tableTrClick(e) {
         }
     }
     if(e.target.textContent !=0){
-        console.log(e.target.parentElement);
         $(e.target.parentElement).addClass('selected');
     };
     

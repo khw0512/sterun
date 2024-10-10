@@ -133,8 +133,17 @@
                   lang = event[i].fields.lang;
                   level = event[i].fields.level;
                   route = event[i].fields.route;
+                  if (event[i].fields.participant != null) {
+                    len_parti = event[i]
+                      .fields
+                      .participant
+                      .split(',')
+                      .length
+                  } else {
+                    len_parti = "0"
+                  }
                   const btitle = document.getElementsByClassName('event-info')[i];
-                  btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
+                  btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-point">- 참여자: ' + len_parti + ' 명</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
                 } catch (e) {
                   const btitle = document.getElementsByClassName('event-info')[i];
                   btitle.innerHTML = '';
