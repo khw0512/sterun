@@ -30,13 +30,13 @@ function tableTrClick(e) {
         }
     }
     if(e.target.textContent !=0){
+        console.log(e.target.parentElement);
         $(e.target.parentElement).addClass('selected');
     };
     
     if(e.target.parentElement.children[0].textContent!='' && e.target.parentElement.children[0].textContent.length<3){
         infoMonth.innerHTML=month+'월';
         infoDay.innerHTML=e.target.parentElement.children[0].textContent + '일';
-        console.log(e.target.parentElement.children[0].textContent);
     }
     else{
         infoMonth.innerHTML='-';

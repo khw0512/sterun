@@ -7,13 +7,13 @@
   <div class="cal-title">{{year}}년
     {{month}}월</div>
   <div class="btn-wrapper">
-    <a href="{% url "schedule:schedule" user_id month|add:-1 %}">
+    <a href="{% url "schedule:schedule" month|add:-1 user_id %}">
       <div class="btn prev">PREV</div>
     </a>
-    <a href="{% url "schedule:schedule" user_id 10 %}">
+    <a href="{% url "schedule:schedule" month_now user_id %}">
       <div class="btn center">TODAY</div>
     </a>
-    <a href="{% url "schedule:schedule" user_id month|add:1 %}">
+    <a href="{% url "schedule:schedule" month|add:1 user_id %}">
       <div class="btn next">NEXT</div>
     </a>
   </div>
@@ -40,7 +40,7 @@
                 <div class="date event-empty">{{ day.0 }}</div>
               {% endif %}
               {% if day.1 != 0 %}
-                <div class="event-count date-event">Run Day :)</div>
+                <div class="event-count date-event">+{{day.1}}</div>
               {% else %}
                 <div class="event-count event-empty"></div>
               {% endif %}
@@ -83,6 +83,10 @@
     </div>
   </div>
   <div class='event-info'></div>
+  <div class='event-info'></div>
+  <div class='event-info'></div>
+  <div class='event-info'></div>
+  <div class='event-info'></div>
 
   <form id="dateSelForm" method="POST" action="">
     <input id="monthForm" value="" type="hidden">
@@ -106,24 +110,44 @@
             'csrfmiddlewaretoken': '{{csrf_token}}',
             'month': month,
             'day': day,
-            'user_id':user_id
+            'user_id': user_id
           },
           dateType: "json",
           success: function (data) {
             var event = JSON.parse(data);
-            try {
-              title = event[0].fields.title;
-              start_time = event[0].fields.start_time;
-              end_time = event[0].fields.end_time;
-              start_point = event[0].fields.start_point;
-              lang = event[0].fields.lang;
-              level = event[0].fields.level;
-              route = event[0].fields.route;
-              const btitle = document.getElementsByClassName('event-info')[0];
-              btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
-            } catch (e) {
-              const btitle = document.getElementsByClassName('event-info')[0];
-              btitle.innerHTML = '';
+            event_len = event.length;
+            let i = 0;
+            const btitle = document.getElementsByClassName('event-info');
+            btitle[0].innerHTML = '';
+            btitle[1].innerHTML = '';
+            btitle[2].innerHTML = '';
+            btitle[3].innerHTML = '';
+            btitle[4].innerHTML = '';
+            if (event_len != 0) {
+              while (i < event_len) {
+                try {
+                  title = event[i].fields.title;
+                  start_time = event[i].fields.start_time;
+                  end_time = event[i].fields.end_time;
+                  start_point = event[i].fields.start_point;
+                  lang = event[i].fields.lang;
+                  level = event[i].fields.level;
+                  route = event[i].fields.route;
+                  const btitle = document.getElementsByClassName('event-info')[i];
+                  btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
+                } catch (e) {
+                  const btitle = document.getElementsByClassName('event-info')[i];
+                  btitle.innerHTML = '';
+                }
+                i++;
+              }
+            } else {
+              const btitle = document.getElementsByClassName('event-info');
+              btitle[0].innerHTML = '';
+              btitle[1].innerHTML = '';
+              btitle[2].innerHTML = '';
+              btitle[3].innerHTML = '';
+              btitle[4].innerHTML = '';
             }
           }
         })

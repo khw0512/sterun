@@ -166,26 +166,36 @@ def deleventpage(request, pk):
     event = GuestRun.objects.filter(pk=pk)
     return render(request, "admin/event_del.html", {"events": event})
 
-year1 = datetime.now().year
-month1 = datetime.now().month
+year_now = datetime.now().year
+month_now = datetime.now().month
+day_now = datetime.now().day
 
 def eventInfo(request):
     month = request.GET.get('month')
     day = request.GET.get('day')
     user_id = request.GET.get('user_id')
     if day !="":
-        check_date= date(int(year1),int(month),int(day))
+        check_date= date(int(year_now),int(month),int(day))
         print(check_date)
     else:
         check_date= date(2000,1,1)
-
     guestruns = GuestRun.objects.filter(completed=False).filter(start_date__month=month).filter(manager=user_id)
     print(len(guestruns))
-    start_date = guestruns.values()[0]['start_date']
-    end_date = guestruns.values()[0]['end_date']
 
-    if start_date <= check_date and check_date <= end_date:
-        context = serializers.serialize("json", guestruns)
-    else:
-        context = None
+    
+    event_list=[]
+    for i in guestruns:
+        #start_date = guestruns.values()[0]['start_date']
+        #end_date = guestruns.values()[0]['end_date']
+        start_date = i.start_date
+        end_date = i.end_date
+        print(start_date)
+        print(check_date)
+        if start_date <= check_date and check_date <= end_date:
+            #context = serializers.serialize("json", guestruns)
+            event_list.append(i)
+            print(event_list)
+        else:
+            event_list=event_list
+    context = serializers.serialize("json", event_list)
     return JsonResponse(context, safe=False)

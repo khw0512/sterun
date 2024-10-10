@@ -14,6 +14,10 @@ tr {
     border:0 !important;
 }
 
+td {
+    width:14%;
+}
+
 .calender{
     display: flex;
     justify-content: center;
@@ -41,7 +45,7 @@ body > div.calender > table > tbody > tr > td{
 }
 
 a{
-    text-decoration: none !important;
+    text-decoration: none !important; 
 }
 
 .header-logo{
@@ -176,6 +180,10 @@ a{
 }
 .infoBar-left > div{
     border: 1px solid #fff;
+}
+
+.date-cell{
+    z-index: 100000;
 }
 
 .date-box{
