@@ -13,7 +13,9 @@
 
   <body>
     <div class="header-logo">
-      <img class="main-logo" src="{% static "img/sterun-logo-2.png" %}" alt="">
+      <a href="{% url "community:index" %}" rel="home">
+        <img class="main-logo" src="{% static "img/sterun-logo-2.png" %}" alt="">
+      </a>
     </div>
     {% block content %}{% endblock %}
   </body>

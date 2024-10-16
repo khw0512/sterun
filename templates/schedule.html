@@ -70,15 +70,19 @@
   <div class="infoBar">
     <div class="infoBar-right">
       <div class="sendBtn-purchase">
-        <button class="clckBox purchase-box">
-          이벤트 생성
-        </button>
+        <a href="{% url "events:event_write" %}">
+          <button class="clckBox purchase-box">
+            이벤트 생성
+          </button>
+        </a>
       </div>
 
       <div class="sendBtn-cancel">
-        <button class="clckBox cancel-box">
-          이벤트 삭제
-        </button>
+        <a id="nav-contact" href="{% url "community:contact_us" %}">
+          <button class="clckBox cancel-box">
+            이벤트 삭제 요청
+          </button>
+        </a>
       </div>
     </div>
   </div>

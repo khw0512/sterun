@@ -11,8 +11,8 @@ from events.models import GuestRun
 from rental.models import Reservation
 
 def index(request):
-    guestruns = GuestRun.objects.filter(completed=False).order_by('start_date')[:3]
-    guestrun = GuestRun.objects.filter(completed=False).order_by('start_date')[:1]
+    guestruns = GuestRun.objects.filter(completed=False).order_by('end_date')[:3]
+    guestrun = GuestRun.objects.filter(completed=False).order_by('end_date')[:1]
     context={"guestruns" : guestruns, "guestrun":guestrun}
 
     return render(request,"index.html", context)
@@ -33,7 +33,7 @@ def mate_guide(request, pg):
     return render(request,"guide/page"+pg+".html")
 
 def events(request):
-    events = GuestRun.objects.filter(completed=False).exclude(status="ST1").order_by("status","start_date")
+    events = GuestRun.objects.filter(completed=False).exclude(status="ST1").order_by("status","-end_date")
     lenofevents = len(events)
     page = int(request.GET.get('p', 1)) #없으면 1로 지정
     paginator = Paginator(events, 5) #한 페이지 당 몇개 씩 보여줄 지 지정 
@@ -61,12 +61,12 @@ def contact_us(request):
     return render(request,"contact.html")
 
 def data(request):
-    reservation = Reservation.objects.all().order_by("status")
+    reservation = Reservation.objects.all().order_by("status","-end_date")
     context = {"reservation": reservation}
     return render(request, "admin/data.html", context)
 
 def event_table(request):
-    event = GuestRun.objects.all().order_by("status")
+    event = GuestRun.objects.all().order_by("status","-end_date")
     context = {"events": event}
     return render(request, "admin/event-table.html", context)
 
