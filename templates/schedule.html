@@ -126,6 +126,8 @@
             if (event_len != 0) {
               while (i < event_len) {
                 try {
+                  id = event[i].pk;
+                  console.log(id);
                   title = event[i].fields.title;
                   start_time = event[i].fields.start_time;
                   end_time = event[i].fields.end_time;
@@ -143,7 +145,7 @@
                     len_parti = "0"
                   }
                   const btitle = document.getElementsByClassName('event-info')[i];
-                  btitle.innerHTML = '<div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-point">- 참여자: ' + len_parti + ' 명</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div>';
+                  btitle.innerHTML = '<a href="http://127.0.0.1:8000/event_detail/' + id + '"' + '><div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-point">- 참여자: ' + len_parti + ' 명</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div></a>';
                 } catch (e) {
                   const btitle = document.getElementsByClassName('event-info')[i];
                   btitle.innerHTML = '';

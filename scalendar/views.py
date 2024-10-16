@@ -67,7 +67,6 @@ def schedule(request,id,user_id):
                 if day >= j['start_date'].day and day <= j['end_date'].day:
                     cal_dic['week'+str(count)][day_count][1]+=1
                 day_count+=1
-        print(cal_dic)
         count=0
 
     context = {

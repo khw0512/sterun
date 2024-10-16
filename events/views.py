@@ -147,7 +147,6 @@ def update_event(request, pk):
     if request.method == "POST":
         if form.is_valid():
             lang = form.cleaned_data.get("lang")
-            print(lang)
             event = form.save(commit=False)
             event.save()
             return redirect("community:event_table")
@@ -179,25 +178,19 @@ def eventInfo(request):
     user_id = request.GET.get('user_id')
     if day !="":
         check_date= date(int(year_now),int(month),int(day))
-        print(check_date)
     else:
         check_date= date(2000,1,1)
     guestruns = GuestRun.objects.filter(completed=False).filter(start_date__month=month).filter(manager=user_id)
-    print(len(guestruns))
 
     
     event_list=[]
     for i in guestruns:
-        #start_date = guestruns.values()[0]['start_date']
         #end_date = guestruns.values()[0]['end_date']
         start_date = i.start_date
         end_date = i.end_date
-        print(start_date)
-        print(check_date)
         if start_date <= check_date and check_date <= end_date:
             #context = serializers.serialize("json", guestruns)
             event_list.append(i)
-            print(event_list)
         else:
             event_list=event_list
     context = serializers.serialize("json", event_list)

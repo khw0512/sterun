@@ -16,6 +16,7 @@ class WriteForm(forms.ModelForm):
         )
 
         fields = [
+            "event_id",
             "title",
             "manager",
             "start_date",
@@ -33,6 +34,7 @@ class WriteForm(forms.ModelForm):
             "desc",
         ]
         widgets = {
+            "event_id": forms.TextInput(attrs={"class": "form-control"}),
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "manager": forms.Select(attrs={"class": "form-control"}),
             "start_time": forms.TimeInput(
@@ -62,6 +64,7 @@ class WriteForm(forms.ModelForm):
             "route": forms.TextInput(attrs={"class": "form-control"}),
         }
         labels = {
+            "event_id":"이벤트 아이디",
             "title":"이벤트 명",
             "manager":"매니저",
             "start_date":"시작일",
@@ -91,6 +94,7 @@ class UpdateForm(forms.ModelForm):
         )
 
         fields = [
+            "event_id",
             "title",
             "manager",
             "start_date",
@@ -111,6 +115,7 @@ class UpdateForm(forms.ModelForm):
             "completed"
         ]
         widgets = {
+            "event_id": forms.TextInput(attrs={"class": "form-control"}),
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "manager": forms.Select(attrs={"class": "form-control"}),
             "start_time": forms.TimeInput(
@@ -143,6 +148,7 @@ class UpdateForm(forms.ModelForm):
             "completed":forms.CheckboxInput(attrs={"class": "form-control"}),
         }
         labels = {
+            "event_id":"이벤트 아이디",
             "title":"이벤트 명",
             "manager":"매니저",
             "start_date":"시작일",
