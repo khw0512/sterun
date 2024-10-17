@@ -149,13 +149,7 @@
                     <a id="nav-event" href="{% url "community:events" %}">Guest Run</a>
                   {% endif %}
                 </li>
-                <li>
-                  {% if 'rental' in request.path %}
-                    <a style="color:#C4E92E;" id="nav-rental" href="{% url "community:rental_items" %}">Rental Items</a>
-                  {% else %}
-                    <a id="nav-rental" href="{% url "community:rental_items" %}">Rental Items</a>
-                  {% endif %}
-                </li>
+                <!--li> {% if 'rental' in request.path %} <a style="color:#C4E92E;" id="nav-rental" href="{% url "community:rental_items" %}">Rental Items</a> {% else %} <a id="nav-rental" href="{% url "community:rental_items" %}">Rental Items</a> {% endif %} </li-->
                 <li class="nav-right-section">
                   {% if 'mypage' in request.path %}
                     <a style="color:#C4E92E;;" id="nav-mypage" href="{% url "community:search" %}">My Page</a>
@@ -222,9 +216,7 @@
                   <li>
                     <a href="{% url "community:events" %}">Geust Run</a>
                   </li>
-                  <li>
-                    <a href="{% url "community:rental_items" %}">Rental Items</a>
-                  </li>
+                  <!--li> <a href="{% url "community:rental_items" %}">Rental Items</a> </li-->
                   <li>
                     <a href="{% url "community:contact_us" %}">Contact Us</a>
                   </li>
@@ -238,9 +230,7 @@
                   <li>
                     <a href="{% url "community:events" %}">Guest Run Reservation</a>
                   </li>
-                  <li>
-                    <a href="{% url "rental:rental_register" %}">Item Rental Reservation</a>
-                  </li>
+                  <!--li> <a href="{% url "rental:rental_register" %}">Item Rental Reservation</a> </li-->
                   {% if user.is_staff %}
                     <li>
                       <a href="{% url "community:data" %}">Data(staff only)</a>
