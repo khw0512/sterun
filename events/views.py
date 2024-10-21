@@ -1,4 +1,4 @@
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from django.http import JsonResponse
 from django.conf import settings
 from django.core.mail import send_mail
@@ -13,6 +13,7 @@ import json
 from events.models import GuestRun
 from items.models import Item
 from rental.models import Reservation
+from scalendar.models import Days
 from .forms import *
 
 def event_write(request):
@@ -98,13 +99,27 @@ def event_register(request, pk):
             event_time = request.POST.get("event_time"),
             delivery = delivery
         )
+        
         guestrun= GuestRun.objects.get(event_id=pk)
+
+        days = Days(
+            event = guestrun,
+            reservation_id = id,
+            date = event_date,
+            participant = username,
+        )
+
+        print(days)
+        
         if guestrun.participant == None:
             guestrun.participant = username
         else:
             guestrun.participant = guestrun.participant + ','+ username
+        
+        days.save()
         guestrun.save()
         reservation.save()
+        
 
         # LINE Notify 액세스 토큰
         line_token = "keAeVnqfCkgFuxZSRBGUwymSN9aqpQC5NXV68GoOVLB"
@@ -186,14 +201,23 @@ def eventInfo(request):
 
     
     event_list=[]
+    participant=[]
     for i in guestruns:
+
         #end_date = guestruns.values()[0]['end_date']
         start_date = i.start_date
         end_date = i.end_date
         if start_date <= check_date and check_date <= end_date:
             #context = serializers.serialize("json", guestruns)
             event_list.append(i)
+            parti = len(Days.objects.filter(event=i).filter(date=check_date))
+            participant.append(parti)
         else:
             event_list=event_list
+            parti = 0
+            participant.append(parti)
+
+    
     context = serializers.serialize("json", event_list)
-    return JsonResponse(context, safe=False)
+    
+    return JsonResponse({'context':context, 'participant':participant}, safe=False)
