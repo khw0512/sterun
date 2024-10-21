@@ -98,11 +98,13 @@ def event_register(request, pk):
             event_time = request.POST.get("event_time"),
             delivery = delivery
         )
-
+        guestrun= GuestRun.objects.get(event_id=pk)
+        if guestrun.participant == None:
+            guestrun.participant = username
+        else:
+            guestrun.participant = guestrun.participant + ','+ username
+        guestrun.save()
         reservation.save()
-
-        event.participant.split().append(username)
-        evnet.save()
 
         # LINE Notify 액세스 토큰
         line_token = "keAeVnqfCkgFuxZSRBGUwymSN9aqpQC5NXV68GoOVLB"

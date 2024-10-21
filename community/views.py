@@ -11,8 +11,8 @@ from events.models import GuestRun
 from rental.models import Reservation
 
 def index(request):
-    guestruns = GuestRun.objects.filter(completed=False).order_by('end_date')[:3]
-    guestrun = GuestRun.objects.filter(completed=False).order_by('end_date')[:1]
+    guestruns = GuestRun.objects.filter(completed=False).exclude(status="ST1").order_by("status","-end_date")[:3]
+    guestrun = GuestRun.objects.filter(completed=False).exclude(status="ST1").order_by("status","-end_date")[:1]
     context={"guestruns" : guestruns, "guestrun":guestrun}
 
     return render(request,"index.html", context)

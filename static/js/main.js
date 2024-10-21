@@ -487,8 +487,8 @@
           if ($("input[name=guestrun]").is(":checked")) {
               $("#guest-run-sec").addClass("show-sec");
               $("#period-sec").addClass("show-sec");
-              $("#message-title").text("5");
-              $("#submit-title").text("6");
+              $("#message-title").text("4");
+              $("#submit-title").text("5");
           } else {
               $("#guest-run-sec").removeClass("show-sec");
               $("#period-sec").removeClass("show-sec");
