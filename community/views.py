@@ -9,6 +9,7 @@ import calendar
 from community.models import ContactUs
 from events.models import GuestRun
 from rental.models import Reservation
+from scalendar.models import Days
 
 def index(request):
     guestruns = GuestRun.objects.filter(completed=False).exclude(status="ST1").order_by("status","-end_date","-start_date")[:3]
@@ -51,6 +52,13 @@ def event_detail(request, pk):
     context = {"event":event}
     return render(request,"event_detail.html", context)
 
+def participant(request, id):
+    event = GuestRun.objects.get(event_id = id)
+    parti = Days.objects.filter(event=event)
+    context = {"event":parti}
+    print(context)
+    return render(request,"admin/participant.html", context)
+
 def rental_items(request):
     return render(request,"rental.html")
 
@@ -66,8 +74,8 @@ def data(request):
     return render(request, "admin/data.html", context)
 
 def event_table(request):
-    event = GuestRun.objects.all().order_by("status","-end_date")
-    context = {"events": event}
+    event = GuestRun.objects.all().order_by("status","-end_date","-start_date")
+    context = {"data":event}
     return render(request, "admin/event-table.html", context)
 
 def mypage(request, pk):

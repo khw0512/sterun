@@ -11,6 +11,7 @@ urlpatterns = [
     path("terms_of_services/", views.terms_of_services, name="terms_of_services"),
     path("events/", views.events, name="events"),
     path("event_detail/<str:pk>", views.event_detail, name="event_detail"),
+    path("participant/<str:id>", views.participant, name="participant"),
     path("rental/", views.rental_items, name="rental_items"),
     path("contact/", views.contact_us, name="contact_us"),
     path("mypage/search/", views.search, name="search"),

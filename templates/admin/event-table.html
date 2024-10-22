@@ -60,7 +60,7 @@
             <th scope="col">가격</th>
             <th scope="col">삭제</th>
           </tr>
-          {% for data in events %}
+          {% for data in data %}
             <tr>
               <td style="width:30px; text-align:center">
                 <a href="{% url "events:update_event" data.pk %}">

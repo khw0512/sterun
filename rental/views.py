@@ -9,6 +9,7 @@ from events.models import GuestRun
 from items.models import Item
 from rental.forms import ReservationForm
 from rental.models import Reservation
+from scalendar.models import Days
 
 
 def rental_register(request):
@@ -168,6 +169,8 @@ def update(request, pk):
 def delreserv(request, pk):
     if request.method == "GET":
         reservation = Reservation.objects.get(pk=pk)
+        days = Days.objects.filter(reservation_id=reservation.reserv_id)
+        days.delete()
         reservation.delete()
         return redirect("community:data")
     else:
