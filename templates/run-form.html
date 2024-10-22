@@ -102,8 +102,10 @@
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
+                  {% for event in events %}
                   <label for="id_event_time" class="label-title forced">Time Attended</label>
-                  <input type="time" name="event_time" class="form-control-time" id="id_event_time">
+                  <input type="time" name="event_time" class="form-control-time" id="id_event_time" value="{{event.start_time|time:"H:i"}}">
+                  {% endfor %}
                 </div>
               </div>
 
