@@ -8,13 +8,13 @@
     {{month}}월</div>
   <div class="btn-wrapper">
     <a href="{% url "schedule:schedule" month|add:-1 user_id %}">
-      <div class="btn prev">PREV</div>
+      <div class="btn prev">이전 달</div>
     </a>
     <a href="{% url "schedule:schedule" month_now user_id %}">
-      <div class="btn center">TODAY</div>
+      <div class="btn center">이번 달</div>
     </a>
     <a href="{% url "schedule:schedule" month|add:1 user_id %}">
-      <div class="btn next">NEXT</div>
+      <div class="btn next">다음 달</div>
     </a>
   </div>
   <table class="calendar">
@@ -85,7 +85,24 @@
   <script src="{% static 'js/calendar.js' %}"></script>
   <script>
     let month = "{{month|escapejs}}";
+    let month_now = "{{month_now|escapejs}}";
+    let day_now = "{{day_now|escapejs}}";
     let user_id = "{{user_id|escapejs}}";
+    var tableTr = document.getElementsByClassName("date-cell");
+
+    for (var i = 0; i < tableTr.length; i++) {
+      try {
+        var day = document
+          .getElementsByClassName("date")[i]
+          .innerHTML;
+        if (month == month_now && day == day_now) {
+          document
+            .getElementsByClassName("date")[i]
+            .setAttribute("style", "color:blue; font-weight:bold;");
+        }
+      } catch (e) {}
+    }
+
     $(document).ready(function () {
       $('.date-cell').click(function () {
         let day = this

@@ -7,6 +7,7 @@ from events.models import GuestRun
 
 yearNow = datetime.now().year
 monthNow = datetime.now().month
+dayNow = datetime.now().day
 
 def schedule(request,id,user_id):
 
@@ -75,8 +76,10 @@ def schedule(request,id,user_id):
         'year':yearNow,
         'month':month_int,
         'month_now': monthNow,
+        'day_now':dayNow,
         'week_data_dic':cal_dic,
         'user_id':user_id,
     }
+    print(context)
     return render(request, 'schedule.html', context)
 

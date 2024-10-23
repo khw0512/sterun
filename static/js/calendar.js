@@ -5,6 +5,7 @@ var daySel = $('.selected').length + 1;
 
 var tableTr = document.getElementsByClassName("date-cell");
 
+
 // row 선택 시 event
 for(var i = 0; i < tableTr.length; i++) {
     $(tableTr).click(function(e) {

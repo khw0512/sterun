@@ -37,7 +37,7 @@
       <div class="tocenter">
         <div style="font-size:2rem; font-weight:bold; padding:10px 0 0 0;">{{event_name}}</div>
       </div>
-      <div style="padding:10px;">
+      <div style="padding:10px; display:flex; justify-content:center;">
         <div style="font-size:0.8rem; border: solid 1px grey; padding:10px; max-width:90%;">
           <div>- 날짜:
             {{run_event.start_date}}
@@ -56,8 +56,9 @@
             {{run_event.start_point}}</div>
           <div>- 러닝 페이스:
             {{run_event.level}}</div>
-          <div>- 코스 이미지:
-            <img style="width:80%" src="/media/{{run_event.route_image}}" alt=""></div>
+          <div>- 코스 이미지:</div>
+          <div>
+            <img style="width:80%; max-width:500px;" src="/media/{{run_event.route_image}}" alt=""></div>
           {% if run_evnet.map_link %}
             <div>- 코스 맵 링크:
               {{run_event.map_link}}</div>
@@ -65,7 +66,7 @@
         </div>
       </div>
 
-      <div style="padding:10px;">
+      <div style="padding:10px; display:flex; justify-content:center;">
         <table border="1px solid black" bordercolor="green" style="font-size:0.6rem;">
           <tr style="background-color:black; color:white;">
             <th scope="col">No.</th>
@@ -82,7 +83,7 @@
               {% elif data.date >= today %}
                 <td style="color:blue;">{{data.date | date:"Y-m-d D"}}</td>
               {% else %}
-                <td style="color:grey;">{{data.date | date:"Y-m-d D"}}</td>
+                <td style="color:grey; background-color:#ebe8e1;">{{data.date | date:"Y-m-d D"}}</td>
               {% endif %}
               <td>{{data.reservation_id}}</td>
               <td>{{data.participant}}</td>
@@ -90,7 +91,7 @@
           {% endfor %}
         </table>
       </div>
-      <div class="tocenter">
+      <div class="tocenter" style="padding: 0 0 20px 0;">
         <a href="{% url "schedule:schedule" today|date:"m" run_event.manager.m_id %}">
           <button style="padding:5px; border-radius:5px;">스케줄 보기</button>
         </a>
