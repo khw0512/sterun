@@ -1,23 +1,122 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="ko">
 
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>STERUN-MANAGER</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'img/icon/favicon.png' %}"/>
+    <link rel="icon" href="{% static 'img/sterun_icon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sterna.css' %}"/>
+
+    <title>STERUN-ADMIN</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+    <style>
+      tr th {
+        border: solid 1px grey;
+        font-size: 0.9rem;
+      }
+
+      tr td {
+        border: solid 1px grey;
+        font-size: 0.8rem;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="header-logo">
+    <div class="tocenter" style="background-color:#4367AF; ">
       <a href="{% url "community:index" %}" rel="home">
-        <img class="main-logo" src="{% static "img/sterun-logo-2.png" %}" alt="">
+        <img style="display:flex; max-width:30%; padding:20px 0 20px 0; margin:auto;" src="{% static "img/sterun-logo-2.png" %}" alt="">
       </a>
     </div>
-    {% block content %}{% endblock %}
+    {% if user.is_staff %}
+      <div class="tocenter">
+        <div style="font-size:2rem; font-weight:bold; padding:10px 0 0 0;">{{event_name}}</div>
+      </div>
+      <div style="padding:10px;">
+        <div style="font-size:0.8rem; border: solid 1px grey; padding:10px; max-width:90%;">
+          <div>- 날짜:
+            {{run_event.start_date}}
+            -
+            {{run_event.end_date}}</div>
+          <div>- 시간:
+            {{run_event.start_time}}
+            -
+            {{run_event.end_time}}</div>
+          <div>- 가격:
+            {{run_event.amount}}
+            $</div>
+          <div>- 코스:
+            {{run_event.route}}</div>
+          <div>- 스타트 포인트:
+            {{run_event.start_point}}</div>
+          <div>- 러닝 페이스:
+            {{run_event.level}}</div>
+          <div>- 코스 이미지:
+            <img style="width:80%" src="/media/{{run_event.route_image}}" alt=""></div>
+          {% if run_evnet.map_link %}
+            <div>- 코스 맵 링크:
+              {{run_event.map_link}}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div style="padding:10px;">
+        <table border="1px solid black" bordercolor="green" style="font-size:0.6rem;">
+          <tr style="background-color:black; color:white;">
+            <th scope="col">No.</th>
+            <th scope="col">날짜</th>
+            <th scope="col">예약ID</th>
+            <th scope="col">참여자</th>
+
+          </tr>
+          {% for data in event %}
+            <tr>
+              <td style="text-align:center;">{{forloop.counter}}</td>
+              {% if data.date == today %}
+                <td style="color:green;">(오늘){{data.date | date:"Y-m-d D"}}</td>
+              {% elif data.date >= today %}
+                <td style="color:blue;">{{data.date | date:"Y-m-d D"}}</td>
+              {% else %}
+                <td style="color:grey;">{{data.date | date:"Y-m-d D"}}</td>
+              {% endif %}
+              <td>{{data.reservation_id}}</td>
+              <td>{{data.participant}}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="tocenter">
+        <a href="{% url "schedule:schedule" today|date:"m" run_event.manager.m_id %}">
+          <button style="padding:5px; border-radius:5px;">스케줄 보기</button>
+        </a>
+      </div>
+    {% else %}
+      <div class="tocenter">
+        <div class="flex-row" style="width:100%; margin: 30px 0 20px 0; justify-content:space-around;">
+          <div style="padding:100px 0 20px 0; font-weight:bold; font-size:2rem;">
+            <p>로그인이 필요합니다 :)</p>
+          </div>
+        </div>
+        <div class="flex-row">
+          <a style="border:solid 1px; font-size:0.8rem; padding:2px;" href="{% url "users:login" %}">Login</a>
+          <div style="width:20px;"></div>
+          <a style="border:solid 1px; font-size:0.8rem; padding:2px;" href="{% url "community:index" %}">Go home</a>
+          <div style="width:20px;"></div>
+          <a style="border:solid 1px; font-size:0.8rem; padding:2px;" href="{% url "community:rental_items" %}">Reservation</a>
+        </div>
+      </div>
+    {% endif %}
+    <script src="https://kit.fontawesome.com/2f3227cf14.js" crossorigin="anonymous"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   </body>
 
 </html>

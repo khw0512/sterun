@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.utils.dateformat import DateFormat
 import math
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
@@ -53,9 +54,10 @@ def event_detail(request, pk):
     return render(request,"event_detail.html", context)
 
 def participant(request, id):
+    today = datetime.now().date()
     event = GuestRun.objects.get(event_id = id)
-    parti = Days.objects.filter(event=event)
-    context = {"event":parti}
+    parti = Days.objects.filter(event=event).order_by("event","-date","participant")
+    context = {"event":parti, "event_name":event.title, "run_event":event, "today":today}
     print(context)
     return render(request,"admin/participant.html", context)
 

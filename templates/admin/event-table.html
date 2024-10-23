@@ -58,6 +58,7 @@
             <th scope="col">레벨</th>
             <th scope="col">루트</th>
             <th scope="col">가격</th>
+            <th scope="col">이벤트예약정보</th>
             <th scope="col">삭제</th>
           </tr>
           {% for data in data %}
@@ -93,6 +94,11 @@
               <td>{{data.level}}</td>
               <td>{{data.route}}</td>
               <td>{{data.amount}}</td>
+              <td>
+                <a href="{% url "community:participant" data.pk %}">
+                  <button>상세보기</button>
+                </a>
+              </td>
               <td style="width:30px; text-align:center">
                 <div class="del-button">
                   <a href="{% url "events:deleventpage" data.pk %}">

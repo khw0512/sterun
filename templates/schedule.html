@@ -50,42 +50,27 @@
       {% endfor %}
     </tbody>
   </table>
-
-  <div class="infoBar">
-    <div class="infoBar-left">
-      <div class="infoBar-left_date">
-        <div class="date-box">
-          <span class="infoMonth">-</span>
-          <span class="infoDay">-</span>
-        </div>
-      </div>
-      <div class="infoBar-left_remain">
-        <div class="remain-box">
-          <span>예약인원</span>
-          <span class="remain-num">0</span>
-        </div>
-      </div>
-    </div>
+  <div class="date-box">
+    <span class="infoMonth">-</span>
+    <span class="infoDay">-</span>
   </div>
-  <div class="infoBar">
-    <div class="infoBar-right">
-      <div class="sendBtn-purchase">
-        <a href="{% url "events:event_write" %}">
-          <button class="clckBox purchase-box">
-            이벤트 생성
-          </button>
-        </a>
-      </div>
 
-      <div class="sendBtn-cancel">
-        <a id="nav-contact" href="{% url "community:contact_us" %}">
-          <button class="clckBox cancel-box">
-            이벤트 삭제 요청
-          </button>
-        </a>
-      </div>
-    </div>
+  <div class="sendBtn-purchase">
+    <a href="{% url "events:event_write" %}">
+      <button class="clckBox purchase-box">
+        이벤트 생성
+      </button>
+    </a>
   </div>
+
+  <div class="sendBtn-cancel">
+    <a id="nav-contact" href="{% url "community:contact_us" %}">
+      <button class="clckBox cancel-box">
+        이벤트 삭제 요청
+      </button>
+    </a>
+  </div>
+
   <div class='event-info'></div>
   <div class='event-info'></div>
   <div class='event-info'></div>
@@ -133,7 +118,6 @@
               while (i < event_len) {
                 try {
                   id = event[i].pk;
-                  console.log(id);
                   title = event[i].fields.title;
                   start_time = event[i].fields.start_time;
                   end_time = event[i].fields.end_time;
@@ -143,7 +127,7 @@
                   route = event[i].fields.route;
                   len_parti = parti[i];
                   const btitle = document.getElementsByClassName('event-info')[i];
-                  btitle.innerHTML = '<a href="http://127.0.0.1:8000/event_detail/' + id + '"' + '><div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-point">- 참여자: ' + len_parti + ' 명</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div></a>';
+                  btitle.innerHTML = '<a href="http://127.0.0.1:8000/participant/' + id + '"' + '><div class="event-ticket"><div class="event-title">' + title + '</div>' + '<div class="event-point">- 참여자: ' + len_parti + ' 명</div>' + '<div class="event-start">- 시간: ' + start_time + "-" + end_time + '</div>' + '<div class="event-route">- 루트: ' + route + '</div>' + '<div class="event-point">- 시작지점: ' + start_point + '</div>' + '<div class="event-level">- 페이스: ' + level + '</div>' + '<div class="event-lang">- 언어: ' + lang + '</div></div></a>';
                 } catch (e) {
                   const btitle = document.getElementsByClassName('event-info')[i];
                   btitle.innerHTML = '';

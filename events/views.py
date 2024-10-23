@@ -111,13 +111,8 @@ def event_register(request, pk):
 
         print(days)
         
-        if guestrun.participant == None:
-            guestrun.participant = username
-        else:
-            guestrun.participant = guestrun.participant + ','+ username
         
         days.save()
-        guestrun.save()
         reservation.save()
         
 
