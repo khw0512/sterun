@@ -160,6 +160,22 @@
           </table>
         </div>
       </div>
+      <div style="height: 20px;"></div>
+      <!--스케줄 검색-->
+      <div class="tocenter">
+        <div style="display:flex; flex-direction:row; ">
+          <label for="month" class="label-title">월</label>
+          <input id="month" class="form-control" name="month" placeholder="month" type="text" required=""/>
+        </div>
+        <div style="display:flex; flex-direction:row; ">
+          <label for="manager" class="label-title rced">매니저</label>
+          <input id="manager" class="form-control" name="manager" placeholder="manager" type="text" required=""/>
+        </div>
+        <button type="submit" name="submit" class="btn-form-func" id="submit-button">
+          <span class="btn-form-func-content">스케줄 보기</span>
+        </button>
+      </div>
+      <!--스케줄 검색-->
     {% else %}
       <div class="tocenter">
         <div class="flex-row" style="width:100%; margin: 30px 0 20px 0; justify-content:space-around;">
@@ -181,7 +197,23 @@
     <!--jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    <!--스케줄 보기 JS-->
+    <script>
+      const check = document.getElementById('submit-button')
+      check.addEventListener('click', function () {
+        var month = document
+          .getElementById('month')
+          .value;
+        var manager = document
+          .getElementById('manager')
+          .value;
+        var url = "{% url 'schedule:schedule' 'month' 'manager'  %}"
+          .replace('month', month)
+          .replace('manager', manager);
+        location.href = url
+      })
+    </script>
+    <!--스케줄 보기 JS-->
   </body>
 
 </html>
