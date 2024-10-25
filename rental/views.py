@@ -127,6 +127,17 @@ def update(request, pk):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.save()
+            days = Days.objects.filter(reservation_id=reservation.reserv_id)
+            print(days)
+            if days:
+                days.delete()
+            days_change = Days(
+                event = reservation.event,
+                reservation_id = reservation.reserv_id,
+                date = reservation.event_date,
+                participant = reservation.username,
+            )
+            days_change.save()
             return redirect("community:data")
         else:
             return redirect("community:data")
@@ -164,6 +175,9 @@ def update(request, pk):
             bag_amount=0
         else:
             bag_amount= 5
+        
+
+
         return render(request, "admin/edit.html", {"form": form, "days":days, "shoes_amount":shoes_amount, "top_amount":top_amount, "bottom_amount":bottom_amount, "bag_amount":bag_amount, "item_amount":shoes_amount+top_amount+bottom_amount+bag_amount})
     
 def delreserv(request, pk):
