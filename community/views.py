@@ -84,6 +84,9 @@ def mypage(request, pk):
     reservation = Reservation.objects.all()
     if request.method == "GET":
         result = reservation.filter(reserv_id=pk)
+        result_id = reservation.filter(reserv_id=pk).values()[0]['reserv_id']
+        days = Days.objects.filter(reservation_id = result_id)
+        print(days)
         if result: 
             sub_total = result.values()[0]["amount"]
             status = result.values()[0]["status"]
@@ -99,7 +102,7 @@ def mypage(request, pk):
             else:
                 delivery_amount = 0
             amount = sub_total + delivery_amount + ticket_amount
-            context = {"result_len": len(result), "id": pk, "sub_total":sub_total,"amount":amount,"delivery":delivery, "status":status, "event_id":event_id, "ticket_amount":ticket_amount, "result": result}
+            context = {"result_len": len(result), "id": pk, "sub_total":sub_total,"amount":amount,"delivery":delivery, "status":status, "event_id":event_id, "ticket_amount":ticket_amount, "result": result, "days":days}
             return render(request, "mypage.html", context)
         else:
             context = {"result":"noresult"}

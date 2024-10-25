@@ -164,6 +164,9 @@
                         <h5>Guest Run Ticket</h5>
                         {% if data.event.title %}
                           <!-- Widget event -->
+                          {% for day in days %}
+                            {{day.date}}
+                          {% endfor %}
                           <div class="tf-widget-event-v2">
                             <div class="themeflat-container" style="padding:0;">
                               <div class="widget-event">

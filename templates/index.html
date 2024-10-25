@@ -56,7 +56,8 @@
                       </span>
                       <a href="{% url "community:event_detail" data.event_id %}">Start
                         {{data.start_time}}
-                        - Until Finish</a>
+                        -
+                        {{data.end_time}}</a>
                     </li>
                     <li>
                       <span class="icon-new">
@@ -241,6 +242,8 @@
                     </svg>
                   </span>
                   {{ data.start_date }}
+                  -
+                  {{data.end_date}}
                 </p>
                 <p>
                   <span>
@@ -250,7 +253,8 @@
                   </span>
                   Start
                   {{ data.start_time }}
-                  - Until Finish
+                  -
+                  {{data.end_time}}
                 </p>
               </div>
               <img decoding="async" src="/media/{{data.image}}" alt="denpasar marathon event 2023">
