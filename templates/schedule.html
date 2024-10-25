@@ -40,7 +40,7 @@
                 <div class="date event-empty">{{ day.0 }}</div>
               {% endif %}
               {% if day.1 != 0 %}
-                <div class="event-count date-event">+{{day.1}}</div>
+                <div class="event-count date-event">{{day.1}}</div>
               {% else %}
                 <div class="event-count event-empty"></div>
               {% endif %}
@@ -122,7 +122,7 @@
           success: function (data) {
             var event = JSON.parse(data['context']);
             var parti = data['participant'];
-            console.log(parti)
+            console.log(event)
             event_len = event.length;
             let i = 0;
             const btitle = document.getElementsByClassName('event-info');

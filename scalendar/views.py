@@ -13,8 +13,7 @@ def schedule(request,id,user_id):
 
     month_int = int(id)
 
-    guestruns = GuestRun.objects.values().filter(completed=False).filter(start_date__month=month_int).filter(manager=user_id)
-    
+    guestruns = GuestRun.objects.values().filter(completed=False).filter(start_date__month__lte=month_int).filter(end_date__month__gte=month_int).filter(manager=user_id)
     if guestruns:
         start_month = guestruns[0]['start_date'].month
         start_day = guestruns[0]['start_date'].day
@@ -60,16 +59,20 @@ def schedule(request,id,user_id):
     cal_dic = data_dic
 
     count=0
+
     for j in guestruns:
         for week in cal:
             count+=1
             day_count=0
             for day in week:
-                if day >= j['start_date'].day and day <= j['end_date'].day:
-                    cal_dic['week'+str(count)][day_count][1]+=1
-                day_count+=1
+                if day!=0:
+                    if date(yearNow,month_int,day) >= j['start_date'] and date(yearNow,month_int,day) <= j['end_date']:
+                        cal_dic['week'+str(count)][day_count][1]+=1
+                    day_count+=1
+                else:
+                    cal_dic['week'+str(count)][day_count][1]=0
+                    day_count+=1
         count=0
-
     context = {
         'events':guestruns,
         'week_data':cal,
@@ -80,6 +83,6 @@ def schedule(request,id,user_id):
         'week_data_dic':cal_dic,
         'user_id':user_id,
     }
-    print(context)
+    print(cal_dic)
     return render(request, 'schedule.html', context)
 

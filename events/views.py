@@ -192,7 +192,7 @@ def eventInfo(request):
         check_date= date(int(year_now),int(month),int(day))
     else:
         check_date= date(2000,1,1)
-    guestruns = GuestRun.objects.filter(completed=False).filter(start_date__month=month).filter(manager=user_id)
+    guestruns = GuestRun.objects.filter(completed=False).filter(start_date__month__lte=month).filter(end_date__month__gte=month).filter(manager=user_id)
 
     
     event_list=[]
@@ -204,6 +204,9 @@ def eventInfo(request):
         end_date = i.end_date
         if start_date <= check_date and check_date <= end_date:
             #context = serializers.serialize("json", guestruns)
+            print(start_date)
+            print(check_date)
+            print(end_date)
             event_list.append(i)
             parti = len(Days.objects.filter(event=i).filter(date=check_date))
             participant.append(parti)

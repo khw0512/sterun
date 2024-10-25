@@ -106,8 +106,12 @@
               <td>{{data.delivery}}</td>
               <td>{{data.address}}</td>
               <td>{{data.amount}}</td>
-              <td>{{data.event}}</td>
-              <td>{{data.event_date | date:"Y-m-d"}}</td>
+              <td>{{data.event.title}}</td>
+              {% if data.event.start_date > data.event_date or data.event.end_date < data.event_date %}
+                <td style="color:red; font-weight:bold; font-size:0.8rem;">{{data.event_date | date:"Y-m-d"}}</td>
+              {% else %}
+                <td>{{data.event_date | date:"Y-m-d"}}</td>
+              {% endif %}
               <td>{{data.event_time | time:"H:i"}}</td>
               <td>{{data.message}}</td>
               <td style="width:30px; text-align:center">
